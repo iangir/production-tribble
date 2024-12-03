@@ -8,13 +8,15 @@
 }
 
 .links {
+	text-align: center;
 	margin-left: auto;
 	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	grid-template-columns: repeat(3, 100px);
+	gap: 10px;
 }
 
 .switchers {
 	display: flex;
-	justify-content: center;
+	justify-content: space-around;
 	// width: 100%;
 }
