@@ -7,18 +7,14 @@ interface SidebarProps {
 	className?: string;
 }
 export const Sidebar = ({ className }: SidebarProps) => {
-	const [collapsed, setCollapsed] = useState(false);
+	const [collapsed, setCollapsed] = useState(true);
 
 	const onToggle = () => {
 		setCollapsed((prev) => !prev);
 	};
 	return (
-		<div
-			className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
-				className,
-			])}
-		>
-			<Button onClick={onToggle} type="button">
+		<div className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
+			<Button onClick={onToggle} type='button'>
 				TOGGLE
 			</Button>
 		</div>

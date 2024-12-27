@@ -1,0 +1,37 @@
+.PageLoader {
+	min-height: calc(100vh - var(--navbar-height));
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.loader-size-m {
+	position: relative;
+	width: var(--loader-size-m);
+	height: var(--loader-size-m);
+}
+
+.loader-size-s {
+	position: relative;
+	width: var(--loader-size-s);
+	height: var(--loader-size-s);
+}
+
+.loader::before,
+.loader::after {
+	content: "";
+	border-radius: 50%;
+	position: absolute;
+	inset: 0;
+	box-shadow: 0 0 10px 2px rgb(0 0 0 / 30%) inset;
+}
+
+.loader::after {
+	box-shadow: 0 2px 0 var(--primary-color) inset;
+	animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+	0% { transform: rotate(0); }
+	100% { transform: rotate(360deg); }
+}
