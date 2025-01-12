@@ -35,12 +35,12 @@ module.exports = {
 			'error',
 			{
 				markupOnly: true,
-				ingoreAttribute: ['data-testid'],
+				ignoreAttribute: ['data-testid', 'to'],
 			},
 		],
 		'linebreak-style': 0,
 		'eslint linebreak-style': [0, 'error', 'windows'],
-		'max-len': ['error', { ignoreComments: true, code: 100 }],
+		'max-len': ['error', { ignoreComments: true, code: 120 }],
 	},
 	globals: {
 		__IS_DEV__: true,

@@ -9,7 +9,7 @@ describe('classNames', () => {
 			classNames('someClass', { hovered: undefined, scrollable: false, disabled: true }, [
 				'class1',
 				'class2',
-			])
+			]),
 		).toBe('someClass class1 class2 disabled');
 	});
 });
