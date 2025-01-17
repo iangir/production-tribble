@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link, LinkProps } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { FC } from 'react';
@@ -13,13 +14,7 @@ interface AppLinkProps extends LinkProps {
 	theme?: AppLinkTheme;
 }
 export const AppLink: FC<AppLinkProps> = (props) => {
-	const {
-		to,
-		children,
-		className,
-		theme = AppLinkTheme.PRIMARY,
-		...otherProps
-	} = props;
+	const { to, children, className, theme = AppLinkTheme.PRIMARY, ...otherProps } = props;
 	return (
 		<Link
 			to={to}
