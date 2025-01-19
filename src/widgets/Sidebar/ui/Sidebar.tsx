@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useState } from 'react';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
+import HamburgerIcon from 'shared/assets/icons/hamburger.svg';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
@@ -15,16 +15,16 @@ export const Sidebar = ({ className }: SidebarProps) => {
 	};
 	return (
 		<div
-			data-testid='sidebar'
+			data-testid="sidebar"
 			className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
 		>
 			<Button
-				theme={ThemeButton.DEFAULT}
-				data-testid='sidebar-toggle'
+				theme={ThemeButton.ICON}
+				data-testid="sidebar-toggle"
 				onClick={onToggle}
-				type='button'
+				type="button"
 			>
-				TOGGLE
+				<HamburgerIcon />
 			</Button>
 		</div>
 	);

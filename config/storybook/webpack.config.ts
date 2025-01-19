@@ -1,6 +1,6 @@
 import webpack, { RuleSetRule } from 'webpack';
-import { BuildPaths } from '../build/types/config';
 import path from 'path';
+import { BuildPaths } from '../build/types/config';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
 
 export default ({ config }: { config: webpack.Configuration }) => {
@@ -13,8 +13,9 @@ export default ({ config }: { config: webpack.Configuration }) => {
 	config.resolve?.modules?.push(paths.src);
 	config.resolve?.extensions?.push('.ts', '.tsx');
 
-	// @ts-ignore
-	config.module.rules = config.module.rules.map((rule) => {
+	// @ts-ignore lint-ignore
+	// eslint-disable-next-line
+	config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
 		if (/svg/.test(rule.test as string)) {
 			return { ...rule, exclude: /\.svg$/i };
 		}
