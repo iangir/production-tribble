@@ -23,7 +23,13 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	// onClick?: () => void;
 }
 export const Button: FC<ButtonProps> = (props) => {
-	const { className, children, theme, type = 'button', ...otherProps } = props;
+	const {
+		className,
+		children,
+		theme,
+		type = 'button',
+		...otherProps
+	} = props;
 
 	return (
 		<button
