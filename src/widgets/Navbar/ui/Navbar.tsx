@@ -5,6 +5,7 @@ import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { LangSwitcher } from 'widgets/LangSwitcher/index';
 import { BugButton } from 'app/providers/ErrorBoundary';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -16,10 +17,10 @@ export const Navbar = ({ className }: NavbarProps) => {
 	return (
 		<div className={classNames(cls.Navbar, {}, [className])}>
 			<div className={cls.links}>
-				<AppLink theme={AppLinkTheme.SECONDARY} to="/">
+				<AppLink theme={AppLinkTheme.SECONDARY} to={RoutePath.main}>
 					{t('Главная')}
 				</AppLink>
-				<AppLink theme={AppLinkTheme.SECONDARY} to="/about">
+				<AppLink theme={AppLinkTheme.SECONDARY} to={RoutePath.about}>
 					{t('О сайте')}
 				</AppLink>
 				<div className={cls.switchers}>

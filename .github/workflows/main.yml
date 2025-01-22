@@ -19,10 +19,14 @@ jobs:
             - name: install modules
               run: npm install
             - name: build production project
+              if: always()
               run: npm run build:prod
             - name: linting typescript
               run: npm run lint:ts
+              if: always()
             - name: linting css
+              if: always()
               run: npm run lint:scss
             - name: unit testing
+              if: always()
               run: npm run test:unit
