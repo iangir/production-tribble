@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
+import LightIcon from 'shared/assets/icons/sun-icon.svg';
 
 import { Button, ThemeButton } from './Button';
 
@@ -20,18 +21,24 @@ export default meta;
 type Story = StoryObj<typeof Button>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Primary: Story = {
+export const Default: Story = {
 	args: {
 		children: 'Button',
 		label: 'Button',
 	},
 };
 
-export const Secondary: Story = {
+export const Clear: Story = {
 	args: {
 		children: 'Button',
 		theme: ThemeButton.CLEAR,
-		label: 'Button',
+	},
+};
+
+export const ClearInverted: Story = {
+	args: {
+		children: 'Button',
+		theme: ThemeButton.CLEAR_INVERTED,
 	},
 };
 
@@ -39,6 +46,26 @@ export const Outline: Story = {
 	args: {
 		children: 'Button',
 		theme: ThemeButton.OUTLINE,
-		label: 'Button',
+	},
+};
+
+export const OutlineIncerted: Story = {
+	args: {
+		children: 'Button',
+		theme: ThemeButton.OUTLINE_INVERTED,
+	},
+};
+
+export const Icon: Story = {
+	args: {
+		children: <LightIcon />,
+		theme: ThemeButton.ICON,
+	},
+};
+
+export const IconInverted: Story = {
+	args: {
+		children: <LightIcon />,
+		theme: ThemeButton.ICON_INVERTED,
 	},
 };

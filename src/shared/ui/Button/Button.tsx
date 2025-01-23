@@ -4,9 +4,12 @@ import cls from './Button.module.scss';
 
 export enum ThemeButton {
 	CLEAR = 'clear',
+	CLEAR_INVERTED = 'clearInverted',
 	DEFAULT = 'default',
 	OUTLINE = 'outline',
+	OUTLINE_INVERTED = 'outlineInverted',
 	ICON = 'icon',
+	ICON_INVERTED = 'iconInverted',
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

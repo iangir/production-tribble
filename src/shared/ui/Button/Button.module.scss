@@ -1,28 +1,36 @@
 .Button {
+	color: var(--primary-color);
 	cursor: pointer;
 }
 
-.clear {
+.clear,
+.clearInverted {
 	padding: 0;
 	margin: 0;
 	border: none;
 	background: none;
 	outline: none;
+	font-size: var(--font-m);
 }
 
-.default {
-	color: var(--primary-color);
+.clearInverted {
+	color: var(--inverted-primary-color);
 }
 
-.outline {
+.outline,
+.outlineInverted {
 	padding: 10px;
 	border: 1px solid var(--primary-color);
-	color: var(--primary-color);
 	background: none;
 }
 
-.icon {
-	color: var(--secondary-color);
+.outlineInverted {
+	color: var(--inverted-primary-color);
+	border: 1px solid var(--inverted-primary-color);
+}
+
+.icon,
+.iconInverted {
 	margin: 0 auto;
 	padding: 0;
 	border: none;
@@ -31,4 +39,8 @@
 	align-self: center;
 	width: 30px;
 	height: 30px;
+}
+
+.iconInverted {
+	color: var(--inverted-primary-color);
 }
