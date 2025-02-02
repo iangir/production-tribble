@@ -4,11 +4,10 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { LangSwitcher } from 'widgets/LangSwitcher/index';
-import { BugButton } from 'app/providers/ErrorBoundary';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
-import { Modal } from 'shared/ui/Modal/Modal';
 import { useTheme } from 'app/providers/ThemeProvider';
+import { LoginModal } from 'features/AuthByUsername';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -18,10 +17,13 @@ interface NavbarProps {
 export const Navbar = ({ className }: NavbarProps) => {
 	const { t } = useTranslation();
 	const [isAuthModal, setIsAuthModal] = useState(false);
-	const { theme } = useTheme();
 
-	const onToggleModal = useCallback(() => {
-		setIsAuthModal((prev) => !prev);
+	const onShowModal = useCallback(() => {
+		setIsAuthModal(true);
+	}, []);
+
+	const onCloseModal = useCallback(() => {
+		setIsAuthModal(false);
 	}, []);
 
 	return (
@@ -38,14 +40,12 @@ export const Navbar = ({ className }: NavbarProps) => {
 					<LangSwitcher />
 				</div>
 				<Button
-					onClick={onToggleModal}
+					onClick={onShowModal}
 					theme={ThemeButton.CLEAR_INVERTED}
 				>
 					{t('Войти')}
 				</Button>
-				<Modal isOpen={isAuthModal} onClose={onToggleModal}>
-					{'asddddddddddddd'}
-				</Modal>
+				<LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
 			</div>
 		</div>
 	);

@@ -1,10 +1,5 @@
-import { Counter } from 'entities/Counter';
 import React from 'react';
 
-const MainPage = () => (
-	<div>
-		<Counter />
-	</div>
-);
+const MainPage = () => <div />;
 
 export default MainPage;
