@@ -1,14 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
-
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from 'app/providers/ThemeProvider';
 import { Modal } from './Modal';
 
 const meta: Meta<typeof Modal> = {
 	title: 'shared/Modal',
 	component: Modal,
 	parameters: {},
-	tags: ['autodocs'],
-	args: {},
+	args: {
+		isOpen: true,
+		children: 'MODAL',
+	},
 };
 
 export default meta;
@@ -16,16 +18,14 @@ type Story = StoryObj<typeof Modal>;
 
 export const ModalLight: Story = {
 	args: {
-		isOpen: true,
-		children: 'MODAL',
-		className: 'light',
+		className: 'app_light_theme',
 	},
+	decorators: [ThemeDecorator(Theme.LIGHT)],
 };
 
 export const ModalDark: Story = {
 	args: {
-		isOpen: true,
-		children: 'MODAL',
-		className: 'dark',
+		className: 'app_dark_theme',
 	},
+	decorators: [ThemeDecorator(Theme.DARK)],
 };

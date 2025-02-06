@@ -1,28 +1,37 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { Navbar } from './Navbar';
+import { LoginForm } from './LoginForm';
 
-const meta: Meta<typeof Navbar> = {
-	title: 'widget/Navbar',
-	component: Navbar,
+const meta: Meta<typeof LoginForm> = {
+	title: 'features/LoginForm',
+	component: LoginForm,
 	parameters: {},
 	tags: ['autodocs'],
 	args: {},
-	decorators: [RouterDecorator, StoreDecorator({})],
+	decorators: [StoreDecorator({})],
 };
 
 export default meta;
-type Story = StoryObj<typeof Navbar>;
+type Story = StoryObj<typeof LoginForm>;
 
 export const Light: Story = {
-	args: {},
 	decorators: [ThemeDecorator(Theme.LIGHT)],
 };
 
 export const Dark: Story = {
-	args: {},
 	decorators: [ThemeDecorator(Theme.DARK)],
+};
+
+export const LightError: Story = {
+	decorators: [
+		StoreDecorator({
+			loginForm: {
+				username: 'admin',
+				password: 'admin',
+				error: 'Incorrect username or password',
+			},
+		}),
+	],
 };

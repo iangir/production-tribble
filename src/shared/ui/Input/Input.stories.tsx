@@ -2,27 +2,25 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { Navbar } from './Navbar';
+import { Input } from './Input';
 
-const meta: Meta<typeof Navbar> = {
-	title: 'widget/Navbar',
-	component: Navbar,
+const meta: Meta<typeof Input> = {
+	title: 'shared/Input',
+	component: Input,
 	parameters: {},
 	tags: ['autodocs'],
-	args: {},
-	decorators: [RouterDecorator, StoreDecorator({})],
+	args: {
+		value: 'johndoe@email.com',
+	},
 };
 
 export default meta;
-type Story = StoryObj<typeof Navbar>;
+type Story = StoryObj<typeof Input>;
 
 export const Light: Story = {
-	args: {},
-	decorators: [ThemeDecorator(Theme.LIGHT)],
+	decorators: [ThemeDecorator(Theme.LIGHT), RouterDecorator],
 };
 
 export const Dark: Story = {
-	args: {},
-	decorators: [ThemeDecorator(Theme.DARK)],
+	decorators: [ThemeDecorator(Theme.DARK), RouterDecorator],
 };

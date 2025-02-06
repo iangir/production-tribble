@@ -2,41 +2,70 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
-import { InputTerminal } from 'shared/ui/Input/InputTerminal/InputTerminal';
-import { useState } from 'react';
+import { memo, useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { loginActions } from '../../model/slice/loginSlice';
+import { getLoginState } from '../../model/selectors/getLoginState/getLoginState';
+import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import cls from './LoginForm.module.scss';
 
 interface LoginFormProps {
 	className?: string;
 }
 
-export const LoginForm = ({ className }: LoginFormProps) => {
+export const LoginForm = memo(({ className }: LoginFormProps) => {
 	const { t } = useTranslation();
-	const [email, setEmail] = useState('');
-	const [pwd, setPwd] = useState('');
-	const [term, setTerminal] = useState('');
+	const dispatch = useDispatch();
+	const {
+		username, password, error, isLoading,
+	} = useSelector(getLoginState);
+
+	const onChangeUsername = useCallback(
+		(value: string) => {
+			dispatch(loginActions.setUsername(value));
+		},
+		[dispatch],
+	);
+
+	const onChangePassword = useCallback(
+		(value: string) => {
+			dispatch(loginActions.setPassword(value));
+		},
+		[dispatch],
+	);
+
+	const onLoginClick = useCallback(() => {
+		dispatch(loginByUsername({ username, password }));
+	}, [dispatch, username, password]);
 
 	return (
-		<div className={classNames(cls.LoginForm, {}, [className])}>
+		<form className={classNames(cls.LoginForm, {}, [className])}>
+			<Text title={t('Sign in')} />
+			{error && <Text p={error} theme={TextTheme.ERROR} />}
 			<Input
-				onChange={(value) => setEmail(value)}
-				value={email}
+				onChange={onChangeUsername}
+				value={username}
 				className={cls.input}
 				type="text"
 				placeholder={t('Email')}
 			/>
 			<Input
+				onChange={onChangePassword}
+				value={password}
 				className={cls.input}
 				type="text"
 				placeholder={t('Password')}
 			/>
-			<InputTerminal
-				value={term}
-				onChange={(value) => setTerminal(value)}
-				label={t('Terminal')}
-				autofocus
-			/>
-			<Button theme={ThemeButton.OUTLINE}>{t('Войти')}</Button>
-		</div>
+			<Button
+				type="submit"
+				onClick={onLoginClick}
+				onSubmit={onLoginClick}
+				disabled={isLoading}
+				theme={ThemeButton.OUTLINE}
+			>
+				{t('Sign in')}
+			</Button>
+		</form>
 	);
-};
+});

@@ -1,0 +1,23 @@
+.Text {
+	text-align: center;
+}
+
+.title {
+	font: var(--font-l);
+	color: var(--primary-color);
+}
+
+.p {
+	font: var(--font-m);
+	color: var(--secondary-color);
+}
+
+.error {
+	.title {
+		color: var(--error-title-color);
+	}
+
+	.p {
+		color: var(--error-text-color);
+	}
+}

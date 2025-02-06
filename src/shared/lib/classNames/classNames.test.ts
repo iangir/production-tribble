@@ -6,10 +6,11 @@ describe('classNames', () => {
 	});
 	test('with additional params', () => {
 		expect(
-			classNames('someClass', { hovered: undefined, scrollable: false, disabled: true }, [
-				'class1',
-				'class2',
-			]),
-		).toBe('someClass class1 class2 disabled');
+			classNames(
+				'someClass',
+				{ hovered: undefined, scrollable: false, disabled: true },
+				['class1', 'class2'],
+			),
+		).toBe('someClass disabled class1 class2');
 	});
 });

@@ -15,15 +15,8 @@ export enum ThemeButton {
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	className?: string;
 	theme?: ThemeButton;
-
-	// /** What background color to use */
-	// backgroundColor?: string;
-	// /** How large should the button be? */
-	// size?: 'small' | 'medium' | 'large';
-	// /** Button contents */
+	disabled?: boolean;
 	label?: string;
-	/** Optional click handler */
-	// onClick?: () => void;
 }
 export const Button: FC<ButtonProps> = (props) => {
 	const {
@@ -31,14 +24,21 @@ export const Button: FC<ButtonProps> = (props) => {
 		children,
 		theme,
 		type = 'button',
+		disabled,
 		...otherProps
 	} = props;
+
+	const mods: Record<string, boolean> = {
+		[cls[theme]]: true,
+		[cls.disabled]: disabled,
+	};
 
 	return (
 		<button
 			// eslint-disable-next-line react/button-has-type
 			type={type}
-			className={classNames(cls.Button, {}, [className, cls[theme]])}
+			className={classNames(cls.Button, mods, [className])}
+			disabled={disabled}
 			{...otherProps}
 		>
 			{children}

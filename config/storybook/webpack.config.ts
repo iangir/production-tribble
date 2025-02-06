@@ -1,4 +1,4 @@
-import webpack, { RuleSetRule } from 'webpack';
+import webpack, { DefinePlugin, RuleSetRule } from 'webpack';
 
 import path from 'path';
 import { BuildPaths } from '../build/types/config';
@@ -31,6 +31,9 @@ export default ({ config }: { config: webpack.Configuration }) => {
 	config.plugins?.push(
 		new webpack.ProvidePlugin({
 			React: 'react',
+		}),
+		new DefinePlugin({
+			__IS_DEV__: true,
 		}),
 	);
 

@@ -1,11 +1,13 @@
 {
-	"Тестовый пример": "Test example",
-	"Перевод": "Translate",
-	"Главная": "Main page",
-	"О сайте": "About",
-	"Язык": "EN",
-	"Страница не найдена": "Page not found",
-	"Что то пошло не так": "Something went wrong",
-	"Обновить": "Refresh",
-	"Войти": "Sign up"
+	"Main page": "Main page",
+	"About": "About",
+	"Language": "EN",
+	"Page not found": "Page not found",
+	"Something went wrong": "Something went wrong",
+	"Refresh": "Refresh",
+	"Sign in": "Sign in",
+	"Sign out": "Sign out",
+	"Email": "Email",
+	"Password": "Password",
+	"Incorrect username or password.": "Incorrect username or password."
 }
