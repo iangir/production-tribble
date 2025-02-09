@@ -65,7 +65,9 @@ export const Navbar = ({ className }: NavbarProps) => {
 					<LangSwitcher />
 				</div>
 				{authBtn}
-				<LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
+				{isAuthModal && (
+					<LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
+				)}
 			</div>
 		</div>
 	);

@@ -42,7 +42,7 @@ module.exports = {
 			'error',
 			{
 				markupOnly: true,
-				ignoreAttribute: ['data-testid', 'to'],
+				ignoreAttribute: ['data-testid', 'to', 'name'],
 			},
 		],
 		'linebreak-style': 0,
