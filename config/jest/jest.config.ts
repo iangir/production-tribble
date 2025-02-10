@@ -19,6 +19,7 @@ export default {
 		// '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
 		// '<rootDir>/__mocks__/fileMock.js',
 		'^axios$': 'axios/dist/node/axios.cjs',
+		// '^axios$': require.resolve('axios'),
 		'\\.s?scss$': 'identity-obj-proxy',
 		'\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
 	},
@@ -39,7 +40,7 @@ export default {
 	testEnvironment: 'jsdom',
 
 	// An array of directory names to be searched recursively up from the requiring module's location
-	moduleDirectories: ['node_modules'],
+	moduleDirectories: ['node_modules', 'src'],
 
 	// An array of regexp pattern strings used to skip coverage collection
 	coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
@@ -186,14 +187,13 @@ export default {
 	// timers: "real",
 
 	// A map from regular expressions to paths to transformers
-	// transform: undefined,
+	// transform: {
+	// '^.+\\.tsx?$': 'ts-jest',
+	// },
 
 	// An array of regexp pattern strings that are matched against all source file paths,
 	// matched files will skip transformation
-	// transformIgnorePatterns: [
-	//   "\\\\node_modules\\\\",
-	//   "\\.pnp\\.[^\\\\]+$"
-	// ],
+	// transformIgnorePatterns: ['/node_modules/(?!(axios)/)'],
 
 	// An array of regexp pattern strings that are matched against all modules before
 	// the module loader will automatically return a mock for them
