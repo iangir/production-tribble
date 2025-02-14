@@ -17,7 +17,7 @@ interface ModalProps {
 	lazy?: boolean;
 }
 
-const ANIMATION_DELAY = 300;
+const ANIMATION_DELAY = 200;
 
 export const Modal = ({
 	className,

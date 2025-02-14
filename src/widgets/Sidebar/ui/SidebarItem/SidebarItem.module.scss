@@ -1,0 +1,25 @@
+.item {
+	margin-top: 1rem;
+	display: flex;
+	align-items: center;
+	color: var(--bg-color);
+}
+
+.link {
+	margin-left: 1rem;
+	white-space: nowrap;
+	width: 8rem;
+	transition: 0.25s transform;
+	transform: scale(1);
+}
+
+.icon {
+	min-width: 30px;
+	max-width: 60px;
+}
+
+.collapsed {
+	margin-left: -10px;
+	width: 0;
+	transform: scale(0);
+}

@@ -5,7 +5,10 @@ import { Input } from 'shared/ui/Input/Input';
 import { memo, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { DynamicModuleLoader } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
+import {
+	DynamicModuleLoader,
+	ReducersList,
+} from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
@@ -17,6 +20,10 @@ import cls from './LoginForm.module.scss';
 export interface LoginFormProps {
 	className?: string;
 }
+
+const initialReducers: ReducersList = {
+	loginForm: loginReducer,
+};
 
 const LoginForm = memo(({ className }: LoginFormProps) => {
 	const { t } = useTranslation();
@@ -45,11 +52,7 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
 	}, [dispatch, username, password]);
 
 	return (
-		<DynamicModuleLoader
-			name="loginForm"
-			reducer={loginReducer}
-			removeAfterUnmount
-		>
+		<DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
 			<form
 				className={classNames(cls.LoginForm, {}, [className])}
 				name="loginForm"

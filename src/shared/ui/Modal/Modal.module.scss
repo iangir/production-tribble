@@ -21,6 +21,9 @@
 }
 
 .content {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	margin: 1.5rem auto;
 	padding: 2rem;
 	border-radius: 12px;
@@ -48,6 +51,6 @@
 
 .isClosing {
 	.content {
-		transform: scale(0.2);
+		transform: scale(0.1);
 	}
 }

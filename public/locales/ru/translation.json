@@ -9,5 +9,8 @@
 	"Sign out": "Выйти",
 	"Email": "Адрес электронной почты",
 	"Password": "Пароль",
-	"Incorrect username or password.": "Неверный логин или пароль."
+	"Incorrect username or password.": "Неверный логин или пароль.",
+	"Change language": "Поменять язык",
+	"Home page": "Главная",
+	"Profile": "Профиль"
 }

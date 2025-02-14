@@ -14,10 +14,10 @@ describe('loginSlice', () => {
 				state as LoginSchema,
 				loginActions.setUsername('admin'),
 			),
-		).toStrictEqual({ username: 'admin', password: '123' });
+		).toEqual({ username: 'admin', password: '123' });
 
 		expect(
 			loginReducer(state as LoginSchema, loginActions.setPassword('pwd')),
-		).toStrictEqual({ username: '123', password: 'pwd' });
+		).toEqual({ username: '123', password: 'pwd' });
 	});
 });

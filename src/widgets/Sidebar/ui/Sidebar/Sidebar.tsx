@@ -3,6 +3,8 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import HamburgerIcon from 'shared/assets/icons/hamburger.svg';
 import cls from './Sidebar.module.scss';
+import { SidebarItemsList } from '../../model/items';
+import { SidebarItem } from '../SidebarItem/SidebarItem';
 
 interface SidebarProps {
 	className?: string;
@@ -28,6 +30,16 @@ export const Sidebar = ({ className }: SidebarProps) => {
 			>
 				<HamburgerIcon />
 			</Button>
+
+			<div>
+				{SidebarItemsList.map((item) => (
+					<SidebarItem
+						item={item}
+						collapsed={collapsed}
+						key={item.path}
+					/>
+				))}
+			</div>
 		</div>
 	);
 };
