@@ -11,7 +11,7 @@ const meta: Meta<typeof Navbar> = {
 	parameters: {},
 	tags: ['autodocs'],
 	args: {},
-	decorators: [RouterDecorator, StoreDecorator({})],
+	decorators: [StoreDecorator({}), RouterDecorator],
 };
 
 export default meta;

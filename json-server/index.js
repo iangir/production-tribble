@@ -19,7 +19,7 @@ server.use(async (req, res, next) => {
 // eslint-disable-next-line consistent-return
 server.use((req, res, next) => {
 	if (!req.headers.authorization) {
-		return res.status(403).json({ message: 'AUTHH ERROR' });
+		return res.status(403).json({ message: 'AUTH ERROR' });
 	}
 	next();
 });
@@ -48,11 +48,11 @@ server.post('/login', (req, res) => {
 		return res.json(userFromDB);
 	}
 
-	return res.status(403).json({ message: 'Not found custom' });
+	return res.status(403).json({ message: 'User not found' });
 });
 
 server.use((req, res, next) => {
-	res.header('Access-Control-Allow-Origin', ''); // Allow any origin
+	res.header('Access-Control-Allow-Origin', 'http://localhost:3000'); // Allow any origin
 	res.header(
 		'Access-Control-Allow-Methods',
 		'GET, POST, PUT, DELETE, PATCH, OPTIONS',

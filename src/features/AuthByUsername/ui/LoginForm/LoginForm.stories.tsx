@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
 import LoginForm from './LoginForm';
 
 const meta: Meta<typeof LoginForm> = {
@@ -10,7 +11,7 @@ const meta: Meta<typeof LoginForm> = {
 	parameters: {},
 	tags: ['autodocs'],
 	args: {},
-	decorators: [StoreDecorator({})],
+	decorators: [StoreDecorator({}), RouterDecorator],
 };
 
 export default meta;
@@ -31,6 +32,7 @@ export const LightError: Story = {
 				username: 'admin',
 				password: 'admin',
 				error: 'Incorrect username or password',
+				isLoading: false,
 			},
 		}),
 	],

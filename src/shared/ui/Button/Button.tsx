@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import React, { FC, ButtonHTMLAttributes, memo } from 'react';
 import cls from './Button.module.scss';
 
@@ -22,13 +22,13 @@ export const Button = memo((props: ButtonProps) => {
 	const {
 		className,
 		children,
-		theme,
+		theme = ThemeButton.DEFAULT,
 		type = 'button',
 		disabled,
 		...otherProps
 	} = props;
 
-	const mods: Record<string, boolean> = {
+	const mods: Mods = {
 		[cls[theme]]: true,
 		[cls.disabled]: disabled,
 	};

@@ -3,25 +3,25 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { Theme } from 'app/providers/ThemeProvider';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
-import ProfilePage from './ProfilePage';
+import { TranslationDecorator } from 'shared/config/storybook/TranslationDecorator/TranslationDecorator';
+import { ProfileCard } from './ProfileCard';
 
-const meta: Meta<typeof ProfilePage> = {
-	title: 'pages/ProfilePage',
-	component: ProfilePage,
+const meta: Meta<typeof ProfileCard> = {
+	title: 'entities/ProfileCard',
+	component: ProfileCard,
 	parameters: {},
 	tags: ['autodocs'],
 	args: {},
-	decorators: [StoreDecorator({}), RouterDecorator],
+	decorators: [StoreDecorator({}), RouterDecorator, TranslationDecorator],
 };
 
 export default meta;
-type Story = StoryObj<typeof ProfilePage>;
+type Story = StoryObj<typeof ProfileCard>;
 
 export const Light: Story = {
-	args: {},
+	decorators: [ThemeDecorator(Theme.LIGHT)],
 };
 
 export const Dark: Story = {
-	args: {},
-	decorators: ThemeDecorator(Theme.DARK),
+	decorators: [ThemeDecorator(Theme.DARK)],
 };
