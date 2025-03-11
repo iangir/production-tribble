@@ -1,10 +1,17 @@
 .Navbar {
+	overflow: hidden;
 	width: 100%;
+	max-width: 100%;
 	height: var(--navbar-height);
-	background: var(--inverted-bg-color);
+	background: var(--bg-transparent-color);
 	display: flex;
 	align-items: center;
-	padding: 20px;
+	padding: 0 24px;
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+	backdrop-filter:var(--backdrop-filter);
+	box-shadow: inset 0 -1px 0 0 var(--secondary-color);
 }
 
 .links {

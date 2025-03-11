@@ -10,7 +10,7 @@ const defaultAsyncReducers: ReducersList = {
 	profile: profileReducer,
 };
 
-export const StoreDecorator =	(state: DeepPartial<StateSchema>, asyncReducers?: ReducersList) => (Story: StoryFn) => (
+export const StoreDecorator = (state: DeepPartial<StateSchema>, asyncReducers?: ReducersList) => (Story: StoryFn) => (
 	<StoreProvider
 		initialState={state as StateSchema}
 		asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}

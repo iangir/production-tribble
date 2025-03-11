@@ -11,7 +11,7 @@ const meta: Meta<typeof ProfileCard> = {
 	component: ProfileCard,
 	parameters: {},
 	tags: ['autodocs'],
-	args: {},
+	args: { data: { username: 'johndoe' } },
 	decorators: [StoreDecorator({}), RouterDecorator, TranslationDecorator],
 };
 

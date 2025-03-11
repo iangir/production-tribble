@@ -16,17 +16,19 @@ export const Sidebar = ({ className }: SidebarProps) => {
 		setCollapsed((prev) => !prev);
 	};
 	return (
-		<div
+		<aside
 			data-testid="sidebar"
 			className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
 				className,
 			])}
 		>
 			<Button
-				theme={ThemeButton.ICON_INVERTED}
-				data-testid="sidebar-toggle"
 				onClick={onToggle}
+				theme={ThemeButton.ICON}
+				inverted
+				data-testid="sidebar-toggle"
 				type="button"
+				className={cls.toggleBtn}
 			>
 				<HamburgerIcon />
 			</Button>
@@ -40,6 +42,6 @@ export const Sidebar = ({ className }: SidebarProps) => {
 					/>
 				))}
 			</div>
-		</div>
+		</aside>
 	);
 };

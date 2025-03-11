@@ -1,13 +1,13 @@
 .loader-size-m {
 	width: var(--loader-size-m);
 	height: var(--loader-size-m);
-	border: calc(var((--loader-size-m)) * 0.1) dotted var(--inverted-bg-color);
+	border: calc(var((--loader-size-m)) * 0.1) dotted var(--accent-color);
 }
 
 .loader-size-s {
 	width: var(--loader-size-s);
 	height: var(--loader-size-s);
-	border: calc(var((--loader-size-s)) * 0.1) dotted var(--inverted-bg-color);
+	border: calc(var((--loader-size-s)) * 0.1) dotted var(--accent-color);
 }
 
 .loader {

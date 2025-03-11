@@ -1,8 +1,15 @@
 .app_dark_theme {
-	--bg-color: #0e0e75;
-	--inverted-bg-color: #e8e8ea;
-	--primary-color: #049604;
-	--secondary-color: #04ff04;
-	--inverted-primary-color: #041c65;
-	--inverted-secondary-color: #0449e0;
+	--bg-color: rgba(13 13 8);
+	--bg-transparent-color: rgba(13 13 8 / 60%);
+	--sidebar-bg: rgba(13 13 8 / 60%);
+	// --primary-color: ;
+	--secondary-color: #232321;
+	--primary-text-color: #FFFFFF;
+	--secondary-text-color: #E1E1E1;
+	--inverted-bg-color: #FFFFFF;
+	// --inverted-primary-color: ;
+	--inverted-secondary-color: #DCDCDA;
+	--inverted-primary-text-color:#000000;
+	--inverted-secondary-text-color:#1E1E1E;
+	--overlay-color: rgba(13 13 8 / 80%);
 }

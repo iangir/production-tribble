@@ -38,21 +38,21 @@ export const Navbar = ({ className }: NavbarProps) => {
 	}, [authData, onCloseModal]);
 
 	let authBtn = (
-		<Button onClick={onShowModal} theme={ThemeButton.CLEAR_INVERTED}>
+		<Button onClick={onShowModal} theme={ThemeButton.CLEAR} inverted>
 			{t('Sign in')}
 		</Button>
 	);
 
 	if (authData) {
 		authBtn = (
-			<Button onClick={onLogout} theme={ThemeButton.CLEAR_INVERTED}>
+			<Button onClick={onLogout} theme={ThemeButton.CLEAR} inverted>
 				{t('Sign out')}
 			</Button>
 		);
 	}
 
 	return (
-		<div className={classNames(cls.Navbar, {}, [className])}>
+		<nav className={classNames(cls.Navbar, {}, [className])}>
 			<div className={cls.links}>
 				<AppLink theme={AppLinkTheme.SECONDARY} to={RoutePath.main}>
 					{t('Main page')}
@@ -69,6 +69,6 @@ export const Navbar = ({ className }: NavbarProps) => {
 					<LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
 				)}
 			</div>
-		</div>
+		</nav>
 	);
 };

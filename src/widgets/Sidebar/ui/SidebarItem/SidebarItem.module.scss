@@ -2,7 +2,11 @@
 	margin-top: 1rem;
 	display: flex;
 	align-items: center;
-	color: var(--bg-color);
+	color: var(--primary-text-color);
+
+	svg {
+		color: var(--accent-color);
+	}
 }
 
 .link {

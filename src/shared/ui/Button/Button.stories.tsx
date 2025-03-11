@@ -17,14 +17,12 @@ type Story = StoryObj<typeof Button>;
 export const Default: Story = {
 	args: {
 		children: 'Button',
-		label: 'Button',
 	},
 };
 
 export const DefaultDisabled: Story = {
 	args: {
 		children: 'Button',
-		label: 'Button',
 		disabled: true,
 	},
 };
@@ -39,7 +37,8 @@ export const Clear: Story = {
 export const ClearInverted: Story = {
 	args: {
 		children: 'Button',
-		theme: ThemeButton.CLEAR_INVERTED,
+		theme: ThemeButton.CLEAR,
+		inverted: true,
 	},
 };
 
@@ -53,7 +52,8 @@ export const Outline: Story = {
 export const OutlineInverted: Story = {
 	args: {
 		children: 'Button',
-		theme: ThemeButton.OUTLINE_INVERTED,
+		theme: ThemeButton.OUTLINE,
+		inverted: true,
 	},
 };
 
@@ -67,6 +67,7 @@ export const Icon: Story = {
 export const IconInverted: Story = {
 	args: {
 		children: <LightIcon />,
-		theme: ThemeButton.ICON_INVERTED,
+		theme: ThemeButton.ICON,
+		inverted: true,
 	},
 };

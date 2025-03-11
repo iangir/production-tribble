@@ -1,11 +1,17 @@
 .AppLink {
 	text-decoration: none;
-}
+	color: var(--primary-text-color);
+	text-align: center;
 
-.primary {
-	color: var(--primary-color);
-}
+	&:visited {
+		color: var(--secondary-text-color);
+	}
 
-.secondary {
-	color: var(--secondary-color);
+	&:hover {
+		text-decoration: underline;
+	}
+
+	svg:hover {
+		color: var(--primary-text-color);
+	}
 }

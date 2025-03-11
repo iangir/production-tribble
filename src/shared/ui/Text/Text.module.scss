@@ -1,18 +1,22 @@
 .Text {
-	text-align: center;
 }
 
 .title {
+	margin: auto 0;
 	font: var(--font-l);
-	color: var(--primary-color);
+	font-weight: bold;
+	color: var(--primary-text-color);
 }
 
 .p {
+	margin: auto 0;
 	font: var(--font-m);
-	color: var(--secondary-color);
+	color: var(--secondary-text-color);
 }
 
 .error {
+	color: var(--error-title-color);
+
 	.title {
 		color: var(--error-title-color);
 	}
@@ -20,4 +24,16 @@
 	.p {
 		color: var(--error-text-color);
 	}
+}
+
+.center {
+	text-align: center;
+}
+
+.right {
+	text-align: right;
+}
+
+.left {
+	text-align: left;
 }

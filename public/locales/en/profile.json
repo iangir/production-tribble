@@ -1,3 +1,10 @@
 {
-	"Edit": "Edit"
+	"Edit": "Edit",
+	"Cancel": "Cancel",
+	"Save": "Save",
+	"Name": "Name",
+	"Last name": "Last name",
+	"Age": "Age",
+	"Country": "Country",
+	"City": "City"
 }
