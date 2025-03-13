@@ -2,7 +2,7 @@
 @import "variables/global";
 @import "themes/light";
 @import "themes/dark";
-@import "fonts/fonts.scss";
+@import "fonts/fonts";
 
 * {
 	font-family: SFMono, consolas, monospace;
@@ -40,10 +40,10 @@ input {
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-	-webkit-appearance: none;
+	appearance: none;
 }
 
 /* Firefox */
-input[type=number] {
-	-moz-appearance: textfield;
+input[type="number"] {
+	appearance: textfield;
 }

@@ -5,8 +5,11 @@ import { updateProfileData } from '../services/updateProfileData/updateProfileDa
 
 const initialState: ProfileSchema = {
 	isLoading: false,
+	isEditing: false,
 	error: undefined,
 	data: undefined,
+	form: undefined,
+	validateErrors: undefined,
 };
 
 const profileSlice = createSlice({
@@ -21,6 +24,11 @@ const profileSlice = createSlice({
 		},
 		cancelEdit: (state) => {
 			state.form = state.data;
+			state.validateErrors = undefined;
+			state.isEditing = false;
+		},
+		setIsEditing: (state, action: PayloadAction<boolean>) => {
+			state.isEditing = action.payload;
 		},
 	},
 
@@ -42,7 +50,7 @@ const profileSlice = createSlice({
 			state.error = action.payload;
 		});
 		builder.addCase(updateProfileData.pending, (state) => {
-			state.error = undefined;
+			state.validateErrors = undefined;
 			state.isLoading = true;
 		});
 		builder.addCase(
@@ -51,11 +59,12 @@ const profileSlice = createSlice({
 				state.isLoading = false;
 				state.data = action.payload;
 				state.form = action.payload;
+				state.validateErrors = undefined;
 			},
 		);
 		builder.addCase(updateProfileData.rejected, (state, action) => {
 			state.isLoading = false;
-			state.error = action.payload;
+			state.validateErrors = action.payload;
 		});
 	},
 });

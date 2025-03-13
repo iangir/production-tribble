@@ -53,17 +53,9 @@ export const Navbar = ({ className }: NavbarProps) => {
 
 	return (
 		<nav className={classNames(cls.Navbar, {}, [className])}>
-			<div className={cls.links}>
-				<AppLink theme={AppLinkTheme.SECONDARY} to={RoutePath.main}>
-					{t('Main page')}
-				</AppLink>
-				<AppLink theme={AppLinkTheme.SECONDARY} to={RoutePath.about}>
-					{t('About')}
-				</AppLink>
-				<div className={cls.switchers}>
-					<ThemeSwitcher />
-					<LangSwitcher />
-				</div>
+			<div className={cls.container}>
+				<ThemeSwitcher />
+				<LangSwitcher />
 				{authBtn}
 				{isAuthModal && (
 					<LoginModal isOpen={isAuthModal} onClose={onCloseModal} />

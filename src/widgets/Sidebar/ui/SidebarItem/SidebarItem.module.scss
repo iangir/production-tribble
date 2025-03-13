@@ -1,11 +1,20 @@
 .item {
-	margin-top: 1rem;
 	display: flex;
 	align-items: center;
 	color: var(--primary-text-color);
+	padding: 4px;
+	border-radius: 5px;
+
+	&:hover {
+		background: var(--bg-color-hover);
+	}
 
 	svg {
 		color: var(--accent-color);
+
+		&:hover {
+			transition: color 0.3s ease;
+		}
 	}
 }
 
@@ -18,8 +27,9 @@
 }
 
 .icon {
-	min-width: 30px;
-	max-width: 60px;
+	width: 32px;
+
+	// max-width: 60px;
 }
 
 .collapsed {

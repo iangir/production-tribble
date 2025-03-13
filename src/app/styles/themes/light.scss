@@ -1,15 +1,17 @@
 .app_light_theme {
 	--bg-color: rgba(255 255 250);
-	--bg-transparent-color: rgba(255 255 250 / 60%);
-	--sidebar-bg: rgba(255 255 250 / 60%);
+	--bg-color-transparent: rgba(255 255 250 / 60%);
+	--bg-color-hover: rgba(25 133 161 / 25%);
+
 	// --primary-color: #2E2E2E;
-	--secondary-color: #E1E1DC;
-	--primary-text-color: #000000;
-	--secondary-text-color: #1E1E1E;
-	--inverted-bg-color: #0A0A0A;
+	--secondary-color: #e1e1dc;
+	--primary-text-color: #000;
+	--secondary-text-color: #1e1e1e;
+	--inverted-bg-color: #0a0a0a;
+
 	// --inverted-primary-color: ;
 	--inverted-secondary-color: #232321;
-	--inverted-primary-text-color:#FFFFFF;
-	--inverted-secondary-text-color:#E1E1E1;
+	--inverted-primary-text-color: #fff;
+	--inverted-secondary-text-color: #e1e1e1;
 	--overlay-color: rgba(255 255 250 / 80%);
 }

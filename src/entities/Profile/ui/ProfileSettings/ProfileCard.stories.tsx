@@ -4,19 +4,19 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
 import { TranslationDecorator } from 'shared/config/storybook/TranslationDecorator/TranslationDecorator';
-import { ProfileCard } from './ProfileCard';
+import { ProfileSettings } from './ProfileSettings';
 
-const meta: Meta<typeof ProfileCard> = {
+const meta: Meta<typeof ProfileSettings> = {
 	title: 'entities/ProfileCard',
-	component: ProfileCard,
+	component: ProfileSettings,
 	parameters: {},
 	tags: ['autodocs'],
-	args: { data: { username: 'johndoe' } },
+	args: {},
 	decorators: [StoreDecorator({}), RouterDecorator, TranslationDecorator],
 };
 
 export default meta;
-type Story = StoryObj<typeof ProfileCard>;
+type Story = StoryObj<typeof ProfileSettings>;
 
 export const Light: Story = {
 	decorators: [ThemeDecorator(Theme.LIGHT)],

@@ -1,9 +1,7 @@
 .Sidebar {
 	height: calc(100vh - var(--navbar-height));
 	width: var(--sidebar-width);
-	background: var(--sidebar-bg);
-	// background: var(--bg-transparent-color);
-	// position: -webkit-sticky;
+	background: var(--bg-color-transparent);
 	position: fixed;
 	top: var(--navbar-height);
 	left: 0;
@@ -11,13 +9,8 @@
 	z-index: 999;
 	backdrop-filter: var(--backdrop-filter);
 	box-shadow: inset -1px 0 0 0 var(--secondary-color);
-	padding: 2px;
 }
 
 .collapsed {
 	width: var(--sidebar-width-collapsed);
-}
-
-.toggleBtn {
-	width: 32px;
 }

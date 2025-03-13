@@ -3,15 +3,7 @@
 	color: var(--primary-text-color);
 	text-align: center;
 
-	&:visited {
-		color: var(--secondary-text-color);
-	}
-
 	&:hover {
 		text-decoration: underline;
-	}
-
-	svg:hover {
-		color: var(--primary-text-color);
 	}
 }

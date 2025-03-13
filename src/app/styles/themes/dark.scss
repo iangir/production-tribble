@@ -1,15 +1,18 @@
 .app_dark_theme {
 	--bg-color: rgba(13 13 8);
-	--bg-transparent-color: rgba(13 13 8 / 60%);
-	--sidebar-bg: rgba(13 13 8 / 60%);
+	--bg-color-transparent: rgba(13 13 8 / 60%);
+	--bg-color-hover: rgba(25 133 161 / 25%);
+	--some: rgb(25 133 161);
+
 	// --primary-color: ;
 	--secondary-color: #232321;
-	--primary-text-color: #FFFFFF;
-	--secondary-text-color: #E1E1E1;
-	--inverted-bg-color: #FFFFFF;
+	--primary-text-color: #fff;
+	--secondary-text-color: #e1e1e1;
+	--inverted-bg-color: #fff;
+
 	// --inverted-primary-color: ;
-	--inverted-secondary-color: #DCDCDA;
-	--inverted-primary-text-color:#000000;
-	--inverted-secondary-text-color:#1E1E1E;
+	--inverted-secondary-color: #dcdcda;
+	--inverted-primary-text-color: #000;
+	--inverted-secondary-text-color: #1e1e1e;
 	--overlay-color: rgba(13 13 8 / 80%);
 }

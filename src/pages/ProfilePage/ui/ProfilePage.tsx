@@ -1,6 +1,5 @@
 import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
 	DynamicModuleLoader,
@@ -8,10 +7,7 @@ import {
 } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
 import {
 	fetchProfileData,
-	getProfileForm,
-	getProfileError,
-	getProfileIsLoading,
-	ProfileCard,
+	ProfileSettings,
 	profileReducer,
 } from 'entities/Profile';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -30,10 +26,6 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 	const { t } = useTranslation();
 	const dispatch = useAppDispatch();
 
-	const profileForm = useSelector(getProfileForm);
-	const error = useSelector(getProfileError);
-	const isLoading = useSelector(getProfileIsLoading);
-
 	useEffect(() => {
 		dispatch(fetchProfileData());
 	}, [dispatch]);
@@ -42,11 +34,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 		<DynamicModuleLoader reducers={reducers} removeAfterUnmount>
 			<div className={classNames(cls.ProfilePage, {}, [className])}>
 				<Text title={t('Profile')} align={TextAlign.CENTER} />
-				<ProfileCard
-					data={profileForm}
-					isLoading={isLoading}
-					error={error}
-				/>
+				<ProfileSettings />
 			</div>
 		</DynamicModuleLoader>
 	);

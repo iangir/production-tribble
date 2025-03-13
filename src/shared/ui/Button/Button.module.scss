@@ -11,13 +11,20 @@
 // }
 
 .Button {
-	color: #FFFFFF;
+	min-width: 40px;
+	min-height: 40px;
+	color: #fff;
 	font: var(--font-m);
 	padding: 4px 10px;
 	border: 2px solid var(--accent-color);
 	border-radius: 3rem;
 	background: var(--accent-color);
-	transition: transform 0.1s ease-in-out, box-shadow 0.2s ease, border 0.2s ease, background-color 0.2s ease;
+	transition:
+		transform 0.1s ease-in-out,
+		box-shadow 0.3s ease,
+		border 0.3s ease,
+		background-color 0.3s ease,
+		color 0.3s ease;
 	cursor: pointer;
 
 	&:hover {
@@ -46,16 +53,16 @@
 
 .clear {
 	color: var(--accent-color);
-	padding: 0;
+	padding: 4px;
 	border: none;
 	background: none;
 	outline: none;
 
 	&:is(:hover, :focus-visible) {
+		// padding: 0;
 		box-shadow: none;
-		background: none;
 		border: none;
-		color: var(--primary-text-color);
+		background: var(--bg-color-hover);
 	}
 }
 
@@ -71,25 +78,23 @@
 	&:focus-visible {
 		background: none;
 	}
-
 }
 
 .icon {
 	margin: 0 auto;
-	padding: 0;
+	padding: 4px;
 	border: none;
 	background: none;
 	outline: none;
 	align-self: center;
-	width: 30px;
-	height: 30px;
+	width: 40px;
+	height: 40px;
 	color: var(--accent-color);
 
 	&:is(:hover, :focus-visible) {
 		box-shadow: none;
-		background: none;
 		border: none;
-		color: var(--primary-text-color-color);
+		background: var(--bg-color-hover);
 	}
 }
 
@@ -107,7 +112,6 @@
 
 .l:not(.icon,.clear) {
 	min-width: 160px;
-
 }
 
 .s:not(.icon,.clear) {
