@@ -54,9 +54,10 @@ export const ProfileSettings = (props: ProfileSettingsProps) => {
 		[ValidateProfileError.EMAIL_EXISTS]: t('Email already exists'),
 	};
 
-	// const emailErrorMessage = Object.keys(emailErrorsMap).filter((key) =>
-	// validateErrors?.includes(key),
-	// );
+	const emailErrorMessage = validateErrors?.find((key) =>
+		Object.hasOwn(emailErrorsMap, key),
+	);
+	console.log(emailErrorMessage);
 
 	const onEdit = useCallback(() => {
 		dispatch(profileActions.setIsEditing(true));
@@ -188,12 +189,12 @@ export const ProfileSettings = (props: ProfileSettingsProps) => {
 						) : (
 							<Text title={data?.email} />
 						)}
-						{/* {emailErrorMessage && (
+						{emailErrorMessage && (
 							<Text
 								p={emailErrorMessage}
 								theme={TextTheme.ERROR}
 							/>
-						)} */}
+						)}
 					</label>
 				</div>
 				<div className={cls.avatar}>

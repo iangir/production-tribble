@@ -3,8 +3,8 @@
 		"strict": true,
 		"outDir": "./dist/",
 		"noImplicitAny": true,
-		"module": "ES2020",
-		"target": "es5",
+		"module": "ES2022",
+		"target": "ESNext",
 		"jsx": "react-jsx",
 		"allowJs": true,
 		"moduleResolution": "node",
@@ -13,7 +13,8 @@
 			"*": ["./src/*"]
 		},
 		"esModuleInterop": true,
-		"allowSyntheticDefaultImports": true
+		"allowSyntheticDefaultImports": true,
+		"lib": ["ESNext", "dom"]
 	},
 	"ts-node": {
 		"compilerOptions": {
