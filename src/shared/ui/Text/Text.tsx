@@ -29,21 +29,6 @@ export const Text = (props: TextProps) => {
 		align = TextAlign.LEFT,
 	} = props;
 
-	if (title && p) {
-		return (
-			<div
-				className={classNames(cls.Text, {}, [
-					className,
-					cls[theme],
-					cls[align],
-				])}
-			>
-				{title && <p className={cls.title}>{title}</p>}
-				{p && <p className={cls.p}>{p}</p>}
-			</div>
-		);
-	}
-
 	return (
 		<>
 			{title && (

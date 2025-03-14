@@ -15,15 +15,7 @@
 }
 
 .error {
-	color: var(--error-title-color);
-
-	.title {
-		color: var(--error-title-color);
-	}
-
-	.p {
-		color: var(--error-text-color);
-	}
+	color: var(--error-color);
 }
 
 .center {

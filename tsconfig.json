@@ -4,7 +4,8 @@
 		"outDir": "./dist/",
 		"noImplicitAny": true,
 		"module": "ES2022",
-		"target": "ESNext",
+		"target": "ES2022",
+		"lib": ["ES2022", "DOM"],
 		"jsx": "react-jsx",
 		"allowJs": true,
 		"moduleResolution": "node",
@@ -13,8 +14,7 @@
 			"*": ["./src/*"]
 		},
 		"esModuleInterop": true,
-		"allowSyntheticDefaultImports": true,
-		"lib": ["ESNext", "dom"]
+		"allowSyntheticDefaultImports": true
 	},
 	"ts-node": {
 		"compilerOptions": {

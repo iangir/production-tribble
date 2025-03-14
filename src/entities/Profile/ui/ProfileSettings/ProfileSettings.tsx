@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -48,6 +48,10 @@ export const ProfileSettings = (props: ProfileSettingsProps) => {
 		[ValidateProfileError.USERNAME_EXISTS]: t('Username already exists'),
 	};
 
+	const userErrorMessage = validateErrors?.find((key) =>
+		Object.hasOwn(usernameErrorsMap, key),
+	);
+
 	const emailErrorsMap = {
 		[ValidateProfileError.EMAIL_REQUIRED]: t('Email is required'),
 		[ValidateProfileError.INCORRECT_EMAIL]: t('Incorrect email'),
@@ -57,7 +61,6 @@ export const ProfileSettings = (props: ProfileSettingsProps) => {
 	const emailErrorMessage = validateErrors?.find((key) =>
 		Object.hasOwn(emailErrorsMap, key),
 	);
-	console.log(emailErrorMessage);
 
 	const onEdit = useCallback(() => {
 		dispatch(profileActions.setIsEditing(true));
@@ -113,16 +116,82 @@ export const ProfileSettings = (props: ProfileSettingsProps) => {
 					cls.error,
 				])}
 			>
-				<Text
-					title={t('An error has occurred')}
-					theme={TextTheme.ERROR}
-				/>
+				<Text p={t('An error has occurred')} theme={TextTheme.ERROR} />
 			</div>
 		);
 	}
 
 	return (
-		<div className={classNames(cls.ProfileCard, {}, [className])}>
+		<div className={classNames(cls.ProfileSettings, {}, [className])}>
+			<div className={cls.container}>
+				<div className={cls.data}>
+					<label htmlFor="username" className={cls.label}>
+						<Text p={t('Username')} />
+						{isEditing ? (
+							<Input
+								onChange={onChangeUsername}
+								value={data?.username}
+								className={cls.input}
+								id="username"
+							/>
+						) : (
+							<Text p={data?.username} />
+						)}
+						{userErrorMessage && (
+							<Text
+								p={
+									usernameErrorsMap[
+										userErrorMessage as keyof typeof usernameErrorsMap
+									]
+								}
+								theme={TextTheme.ERROR}
+								className={cls.errorMessagge}
+							/>
+						)}
+					</label>
+					<label htmlFor="email" className={cls.label}>
+						<Text p={t('Email')} />
+						{isEditing ? (
+							<Input
+								onChange={onChangeEmail}
+								value={data?.email}
+								className={cls.input}
+								id="email"
+							/>
+						) : (
+							<Text p={data?.email} />
+						)}
+						{emailErrorMessage && (
+							<Text
+								p={
+									emailErrorsMap[
+										emailErrorMessage as keyof typeof emailErrorsMap
+									]
+								}
+								theme={TextTheme.ERROR}
+								className={cls.errorMessagge}
+							/>
+						)}
+					</label>
+				</div>
+				<div className={cls.avatar}>
+					<Text p={t('Profile Image')} />
+					{isEditing ? (
+						<Input
+							onChange={onChangeAvatar}
+							value={data?.avatar}
+							className={cls.input}
+							id="avatar"
+						/>
+					) : (
+						<Avatar
+							username={data?.username!}
+							src={data?.avatar}
+							size={AvatartSize.LARGE}
+						/>
+					)}
+				</div>
+			</div>
 			<div className={cls.editBtns}>
 				{!isEditing ? (
 					<Button
@@ -155,65 +224,6 @@ export const ProfileSettings = (props: ProfileSettingsProps) => {
 						</Button>
 					</>
 				)}
-			</div>
-			<div className={cls.container}>
-				<div className={cls.data}>
-					<label htmlFor="username" className={cls.label}>
-						<Text p={t('Username')} />
-						{isEditing ? (
-							<Input
-								onChange={onChangeUsername}
-								value={data?.username}
-								className={cls.input}
-								id="username"
-							/>
-						) : (
-							<Text title={data?.username} />
-						)}
-						{/* {userErrorMessage && (
-							<Text
-								p={userErrorMessage}
-								theme={TextTheme.ERROR}
-							/>
-						)} */}
-					</label>
-					<label htmlFor="email" className={cls.label}>
-						<Text p={t('Email')} />
-						{isEditing ? (
-							<Input
-								onChange={onChangeEmail}
-								value={data?.email}
-								className={cls.input}
-								id="email"
-							/>
-						) : (
-							<Text title={data?.email} />
-						)}
-						{emailErrorMessage && (
-							<Text
-								p={emailErrorMessage}
-								theme={TextTheme.ERROR}
-							/>
-						)}
-					</label>
-				</div>
-				<div className={cls.avatar}>
-					<Text p={t('Profile Image')} />
-					{isEditing ? (
-						<Input
-							onChange={onChangeAvatar}
-							value={data?.avatar}
-							className={cls.input}
-							id="avatar"
-						/>
-					) : (
-						<Avatar
-							username={data?.username!}
-							src={data?.avatar}
-							size={AvatartSize.LARGE}
-						/>
-					)}
-				</div>
 			</div>
 		</div>
 	);

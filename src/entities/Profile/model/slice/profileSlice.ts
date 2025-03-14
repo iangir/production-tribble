@@ -60,6 +60,7 @@ const profileSlice = createSlice({
 				state.data = action.payload;
 				state.form = action.payload;
 				state.validateErrors = undefined;
+				state.isEditing = false;
 			},
 		);
 		builder.addCase(updateProfileData.rejected, (state, action) => {

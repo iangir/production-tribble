@@ -11,6 +11,7 @@
 	box-sizing: border-box;
 	scrollbar-color: var(--secondary-color) var(--bg-color);
 	scrollbar-width: thin;
+	transition: color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease, border 0.25s ease;
 }
 
 body {
