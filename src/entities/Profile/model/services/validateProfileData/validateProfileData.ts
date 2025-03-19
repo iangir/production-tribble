@@ -6,7 +6,7 @@ export const validateProfileData = (
 	if (!profile) return [ValidateProfileError.NO_DATA];
 	const { username, email } = profile;
 	const errors: ValidateProfileError[] = [];
-	if (!username) errors.push(ValidateProfileError.USERNAME_REQUIRED);
+	if (!username || !email) errors.push(ValidateProfileError.REQUIRED);
 	if (username && (username.length < 5 || username.length > 20)) {
 		errors.push(ValidateProfileError.USERNAME_LENGTH);
 	}
@@ -16,8 +16,6 @@ export const validateProfileData = (
 	) {
 		errors.push(ValidateProfileError.USERNAME_SYMBOLS);
 	}
-
-	if (!email) errors.push(ValidateProfileError.EMAIL_REQUIRED);
 	if (email && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
 		errors.push(ValidateProfileError.INCORRECT_EMAIL);
 	}

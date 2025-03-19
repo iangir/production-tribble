@@ -2,9 +2,13 @@
 	"Edit": "Изменить",
 	"Cancel": "Отменить",
 	"Save": "Сохранить",
-	"Name": "Имя",
-	"Last name": "Фамилия",
-	"Age": "Возраст",
-	"Country": "Страна",
-	"City": "Город"
+	"Profile image": "Изображение профиля",
+	"Username": "Имя пользователя",
+	"This field is required": "Поле обязательно для заполнения",
+	"Username already exists": "Имя пользователя уже существует",
+	"Username must be between 5 and 20 characters": "Имя пользователя должно быть от 5 до 20 символов",
+	"Username contains invalid symbols": "Имя пользователя содержит недопустимые символы",
+	"Email": "Email",
+	"Email is invalid": "Email неверный",
+	"Email already exists": "Email уже существует"
 }

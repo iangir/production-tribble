@@ -8,4 +8,4 @@ export { getProfileIsLoading } from './model/selectors/getProfileIsLoading/getPr
 export { getProfileData } from './model/selectors/getProfileData/getProfileData';
 export { getProfileForm } from './model/selectors/getProfileForm/getProfileForm';
 export { getProfileError } from './model/selectors/getProfileError/getProfileError';
-export { getProfileValidateErrors } from './model/selectors/getProfileValidateErrors/getProgileValidateErrors';
+export { getProfileValidateErrors } from './model/selectors/getProfileValidateErrors/getProfileValidateErrors';

@@ -7,7 +7,7 @@ import { TranslationDecorator } from 'shared/config/storybook/TranslationDecorat
 import { ProfileSettings } from './ProfileSettings';
 
 const meta: Meta<typeof ProfileSettings> = {
-	title: 'entities/ProfileCard',
+	title: 'entities/ProfileSettings',
 	component: ProfileSettings,
 	parameters: {},
 	tags: ['autodocs'],

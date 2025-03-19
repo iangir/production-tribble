@@ -2,9 +2,13 @@
 	"Edit": "Edit",
 	"Cancel": "Cancel",
 	"Save": "Save",
-	"Name": "Name",
-	"Last name": "Last name",
-	"Age": "Age",
-	"Country": "Country",
-	"City": "City"
+	"Profile image": "Profile image",
+	"This field is required": "This field is required",
+	"Username": "Username",
+	"Username already exists": "Username already exists",
+	"Username must be between 5 and 20 characters": "Username must be between 5 and 20 characters",
+	"Username contains invalid symbols": "Username contains invalid symbols",
+	"Email": "Email",
+	"Email is invalid": "Email is invalid",
+	"Email already exists": "Email already exists"
 }

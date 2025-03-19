@@ -2,35 +2,37 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import stringToGradient from 'shared/lib/stringToGradient/stringToGradient';
 import cls from './Avatar.module.scss';
 
-export enum AvatartSize {
+export enum AvatarSize {
 	MEDIUM = 'm',
 	SMALL = 's',
 	LARGE = 'l',
 }
 
 interface AvatarProps {
-	username: string;
-	size?: AvatartSize;
+	username?: string;
+	size?: AvatarSize;
 	className?: string;
 	src?: string;
 }
 
 export const Avatar = (props: AvatarProps) => {
 	const {
-		className, src, username, size = AvatartSize.MEDIUM,
+		className, src, username, size = AvatarSize.MEDIUM,
 	} = props;
+
+	const usernameToString = username || 'A';
 
 	return src ? (
 		<img
 			src={src}
 			className={classNames(cls.Avatar, {}, [className, cls[size]])}
-			alt="Profile"
+			alt="ProfileImage"
 		/>
 	) : (
 		<div
 			className={classNames(cls.Avatar, {}, [className, cls[size]])}
 			style={{
-				backgroundImage: `${stringToGradient(username)}`,
+				backgroundImage: `${stringToGradient(usernameToString)}`,
 			}}
 		>
 			<svg className={cls.letter} viewBox="0 0 60 60">
@@ -40,7 +42,7 @@ export const Avatar = (props: AvatarProps) => {
 					textAnchor="middle"
 					alignmentBaseline="middle"
 				>
-					{Array.from(username)[0].toUpperCase()}
+					{Array.from(usernameToString)[0].toUpperCase()}
 				</text>
 			</svg>
 		</div>

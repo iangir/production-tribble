@@ -8,7 +8,7 @@ const gradients = [
 
 const stringToGradient = (string: string) => {
 	// trim the string, remove all spaces
-	const trimmedString = string.trim().replace(/\s/g, '');
+	const trimmedString = string?.trim().replace(/\s/g, '');
 
 	// this is how we take the first letter. It works with emojies.
 	const startHash = trimmedString

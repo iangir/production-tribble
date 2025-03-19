@@ -58,7 +58,6 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
 				name="loginForm"
 			>
 				<Text title={t('Sign in')} />
-				{error && <Text p={error} theme={TextTheme.ERROR} />}
 				<Input
 					onChange={onChangeUsername}
 					value={username}
@@ -75,15 +74,24 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
 					placeholder={t('Password')}
 					name="loginForm"
 				/>
+
 				<Button
 					type="submit"
 					onClick={onLoginClick}
 					onSubmit={onLoginClick}
 					disabled={isLoading}
 					theme={ThemeButton.OUTLINE}
+					className={cls.btn}
 				>
 					{t('Sign in')}
 				</Button>
+				{error && (
+					<Text
+						p={error}
+						theme={TextTheme.ERROR}
+						className={cls.error}
+					/>
+				)}
 			</form>
 		</DynamicModuleLoader>
 	);
