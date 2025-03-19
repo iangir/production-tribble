@@ -8,13 +8,13 @@ describe('getProfileData', () => {
 			profile: {
 				validateErrors: [
 					ValidateProfileError.USERNAME_LENGTH,
-					ValidateProfileError.EMAIL_REQUIRED,
+					ValidateProfileError.REQUIRED,
 				],
 			},
 		};
 		expect(getProfileValidateErrors(state as StateSchema)).toEqual([
 			ValidateProfileError.USERNAME_LENGTH,
-			ValidateProfileError.EMAIL_REQUIRED,
+			ValidateProfileError.REQUIRED,
 		]);
 	});
 
