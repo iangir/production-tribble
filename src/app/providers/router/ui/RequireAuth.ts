@@ -8,7 +8,7 @@ export default function RequireAuth({ children }: { children: JSX.Element }) {
 	const location = useLocation();
 
 	if (!auth) {
-		return Navigate({ to: RoutePath.main, replace: true, state: location });
+		return Navigate({ to: RoutePath.feed, replace: true, state: location });
 	}
 
 	return children;

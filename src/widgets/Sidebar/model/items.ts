@@ -13,8 +13,8 @@ export interface SidebarItemType {
 
 export const SidebarItemsList: SidebarItemType[] = [
 	{
-		path: RoutePath.main,
-		text: 'Home page',
+		path: RoutePath.feed,
+		text: 'Posts',
 		Icon: HomeIcon,
 	},
 	{
