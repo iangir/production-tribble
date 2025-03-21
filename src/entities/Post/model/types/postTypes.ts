@@ -27,7 +27,7 @@ export interface PostImageBlock extends PostBaseBlock {
 
 export type PostBlock = PostTextBlock | PostImageBlock | PostCodeBlock;
 
-export interface post {
+export interface PostType {
 	id: string;
 	author: string;
 	createdAt: string;

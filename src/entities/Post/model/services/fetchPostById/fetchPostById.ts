@@ -1,15 +1,15 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import i18n from 'shared/config/i18n/i18n';
 import { ThunkConfig } from 'app/providers/StoreProvider';
-import { Profile } from '../../types/profile';
+import { PostType } from '../../types/postTypes';
 
-export const fetchProfileData = createAsyncThunk<
-	Profile,
-	void,
+export const fetchPostById = createAsyncThunk<
+	PostType,
+	string,
 	ThunkConfig<string>
->('profile/fetchProfileData', async (_, { rejectWithValue, extra }) => {
+>('post/fetchPostById', async (postId, { rejectWithValue, extra }) => {
 	try {
-		const response = await extra.api.get<Profile>('/profile');
+		const response = await extra.api.get<PostType>(`/posts/${postId}`);
 		if (!response.data) {
 			throw new Error();
 		}

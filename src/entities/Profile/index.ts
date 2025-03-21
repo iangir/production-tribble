@@ -1,5 +1,5 @@
 export { ProfileSettings } from './ui/ProfileSettings/ProfileSettings';
-export { Profile, ProfileSchema } from './model/types/Profile';
+export { Profile, ProfileSchema } from './model/types/profile';
 export { profileActions, profileReducer } from './model/slice/profileSlice';
 export { fetchProfileData } from './model/services/fetchProfileData/fetchProfileData';
 export { updateProfileData } from './model/services/updateProfileData/updateProfileData';

@@ -18,7 +18,7 @@ import { Avatar, AvatarSize } from 'shared/ui/ProfilePic/Avatar';
 import { getProfileError } from 'entities/Profile/model/selectors/getProfileError/getProfileError';
 import { getProfileForm } from 'entities/Profile/model/selectors/getProfileForm/getProfileForm';
 import { getProfileIsLoading } from 'entities/Profile/model/selectors/getProfileIsLoading/getProfileIsLoading';
-import { ValidateProfileError } from '../../model/types/Profile';
+import { ValidateProfileError } from '../../model/types/profile';
 import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { getProfileIsEditing } from '../../model/selectors/getProfileIsEditing/getProfileIsEditing';
 import cls from './ProfileSettings.module.scss';

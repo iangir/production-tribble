@@ -1,4 +1,4 @@
-import { ValidateProfileError } from '../../types/Profile';
+import { ValidateProfileError } from '../../types/profile';
 import { validateProfileData } from './validateProfileData';
 
 describe('loginByUsername', () => {

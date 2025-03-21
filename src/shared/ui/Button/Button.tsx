@@ -3,20 +3,18 @@ import React, { ButtonHTMLAttributes, memo } from 'react';
 import cls from './Button.module.scss';
 
 export enum ThemeButton {
-	DEFAULT = '',
 	CLEAR = 'clear',
 	OUTLINE = 'outline',
 	ICON = 'icon',
 }
 
 export enum ButtonColor {
-	DEFAULT = '',
 	RED = 'red',
 	GREEN = 'green',
 }
 
 export enum ButtonSize {
-	MEDIUM = 'm',
+	DEFAULT = 'm',
 	SMALL = 's',
 	LARGE = 'l',
 }
@@ -28,14 +26,15 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	size?: ButtonSize;
 	inverted?: boolean;
 	disabled?: boolean;
+	type?: 'button' | 'submit' | 'reset';
 }
 export const Button = memo((props: ButtonProps) => {
 	const {
 		className,
 		children,
-		theme = ThemeButton.DEFAULT,
-		color = ButtonColor.DEFAULT,
-		size = ButtonSize.MEDIUM,
+		theme,
+		color,
+		size = ButtonSize.DEFAULT,
 		inverted = false,
 		type = 'button',
 		disabled,
@@ -49,15 +48,14 @@ export const Button = memo((props: ButtonProps) => {
 
 	return (
 		<button
-			// eslint-disable-next-line react/button-has-type
-			type={type}
 			className={classNames(cls.Button, mods, [
 				className,
-				cls[theme],
-				cls[color],
+				theme && cls[theme],
+				color && cls[color],
 				cls[size],
 			])}
 			disabled={disabled}
+			type={type}
 			{...otherProps}
 		>
 			{children}

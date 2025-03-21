@@ -5,7 +5,6 @@ const meta: Meta<typeof Avatar> = {
 	title: 'shared/Avatar',
 	component: Avatar,
 	parameters: {},
-	tags: ['autodocs'],
 	args: { username: 'johndoe' },
 };
 

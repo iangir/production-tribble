@@ -21,10 +21,10 @@
 	background: var(--accent-color);
 	transition:
 		transform 0.1s ease-in-out,
-		box-shadow 0.3s ease,
-		border 0.3s ease,
-		background-color 0.3s ease,
-		color 0.3s ease;
+		box-shadow 0.2s ease,
+		border 0.2s ease,
+		background-color 0.2s ease,
+		color 0.2s ease;
 	cursor: pointer;
 
 	&:hover {
@@ -53,7 +53,6 @@
 
 .clear {
 	color: var(--accent-color);
-	padding: 4px;
 	border: none;
 	background: none;
 	outline: none;
@@ -81,14 +80,14 @@
 }
 
 .icon {
+	width: 40px;
+	height: 40px;
 	margin: 0 auto;
 	padding: 4px;
 	border: none;
 	background: none;
 	outline: none;
 	align-self: center;
-	width: 40px;
-	height: 40px;
 	color: var(--accent-color);
 
 	&:is(:hover, :focus-visible) {

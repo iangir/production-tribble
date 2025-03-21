@@ -1,6 +1,6 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk';
 import { updateProfileData } from './updateProfileData';
-import { ValidateProfileError } from '../../types/Profile';
+import { ValidateProfileError } from '../../types/profile';
 
 describe('loginByUsername', () => {
 	const data = {

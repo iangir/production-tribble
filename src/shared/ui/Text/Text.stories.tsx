@@ -6,7 +6,6 @@ const meta: Meta<typeof Text> = {
 	title: 'shared/Text',
 	component: Text,
 	parameters: {},
-	tags: ['autodocs'],
 	args: {},
 };
 

@@ -1,5 +1,5 @@
 import { DeepPartial } from '@reduxjs/toolkit';
-import { ProfileSchema, ValidateProfileError } from '../types/Profile';
+import { ProfileSchema, ValidateProfileError } from '../types/profile';
 import { profileActions, profileReducer } from './profileSlice';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 

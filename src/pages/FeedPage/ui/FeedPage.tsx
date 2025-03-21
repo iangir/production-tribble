@@ -7,10 +7,10 @@ interface FeedPageProps {
 }
 
 export const FeedPage = ({ className }: FeedPageProps) => {
-	const { t } = useTranslation('feed');
+	const { t } = useTranslation();
 	return (
 		<div className={classNames(cls.FeedPage, {}, [className])}>
-			{t('Feed')}
+			{t('feed')}
 		</div>
 	);
 };
