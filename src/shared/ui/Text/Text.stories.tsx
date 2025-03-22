@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
+import { ComponentDecorator } from 'shared/config/storybook/ComponentDecorator/ComponentDecorator';
 import { Text, TextTheme } from './Text';
 
 const meta: Meta<typeof Text> = {
 	title: 'shared/Text',
 	component: Text,
-	parameters: {},
-	args: {},
+	decorators: [ComponentDecorator],
 };
 
 export default meta;

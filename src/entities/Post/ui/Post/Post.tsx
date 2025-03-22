@@ -14,6 +14,7 @@ import {
 import { useSelector } from 'react-redux';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
+import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { postReducer } from '../../model/slice/postSlice';
 import { fetchPostById } from '../../model/services/fetchPostById/fetchPostById';
 import cls from './Post.module.scss';
@@ -37,7 +38,7 @@ export const Post = memo(({ id, className }: PostProps) => {
 	let content;
 
 	if (isLoading) {
-		content = <Loader />;
+		content = <Skeleton width="100%" height="500px" />;
 	} else if (error) {
 		content = (
 			<Text

@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Post } from 'entities/Post';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
+import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import cls from './PostPage.module.scss';
 
 interface PostPageProps {

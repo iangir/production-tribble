@@ -11,4 +11,4 @@ const meta: Meta<typeof FeedPage> = {
 export default meta;
 type Story = StoryObj<typeof FeedPage>;
 
-export const NoAvatar: Story = {};
+export const FeedPageStory: Story = {};

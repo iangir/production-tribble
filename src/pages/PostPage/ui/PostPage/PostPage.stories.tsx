@@ -11,4 +11,4 @@ const meta: Meta<typeof PostPage> = {
 export default meta;
 type Story = StoryObj<typeof PostPage>;
 
-export const NoAvatar: Story = {};
+export const PostPageStory: Story = {};

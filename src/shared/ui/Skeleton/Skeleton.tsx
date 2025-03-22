@@ -10,7 +10,7 @@ interface SkeletonProps {
 
 export const Skeleton = (props: SkeletonProps) => {
 	const {
-		className, height = '100%', width = '100%', borderRadius,
+		className, height, width, borderRadius,
 	} = props;
 
 	const styles: React.CSSProperties = {
@@ -21,7 +21,7 @@ export const Skeleton = (props: SkeletonProps) => {
 
 	return (
 		<div
-			className={classNames(cls.Skeleton, {}, [className])}
+			className={classNames(cls.Skeleton, {}, [className, cls.animate])}
 			style={styles}
 		/>
 	);

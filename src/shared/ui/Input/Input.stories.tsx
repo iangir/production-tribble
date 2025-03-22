@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
+import { ComponentDecorator } from 'shared/config/storybook/ComponentDecorator/ComponentDecorator';
 import { Input } from './Input';
 
 const meta: Meta<typeof Input> = {
@@ -9,7 +10,7 @@ const meta: Meta<typeof Input> = {
 	args: {
 		value: 'johndoe@email.com',
 	},
-	decorators: [RouterDecorator],
+	decorators: [RouterDecorator, ComponentDecorator],
 };
 
 export default meta;

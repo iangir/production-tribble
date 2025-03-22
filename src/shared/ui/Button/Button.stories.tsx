@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import LightIcon from 'shared/assets/icons/sun-icon.svg';
 
+import { ComponentDecorator } from 'shared/config/storybook/ComponentDecorator/ComponentDecorator';
 import {
 	Button, ButtonColor, ButtonSize, ThemeButton,
 } from './Button';
@@ -11,6 +12,7 @@ const meta: Meta<typeof Button> = {
 	parameters: {},
 	tags: ['autodocs'],
 	args: {},
+	decorators: [ComponentDecorator],
 };
 
 export default meta;

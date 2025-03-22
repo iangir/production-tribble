@@ -2,6 +2,7 @@ import React from 'react';
 import type { Preview } from '@storybook/react';
 import { ThemeDecorator } from '../../src/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '../../src/app/providers/ThemeProvider/index';
+import { TranslationDecorator } from '../../src/shared/config/storybook/TranslationDecorator/TranslationDecorator';
 
 const preview: Preview = {
 	parameters: {
@@ -16,37 +17,39 @@ const preview: Preview = {
 		theme: {
 			description: 'Global theme for components',
 			toolbar: {
-				// The label to show for this toolbar item
 				title: 'Theme',
-				// Array of plain string values or MenuItem shape (see below)
 				items: [
 					{ title: 'Dark', value: Theme.DARK },
 					{ title: 'Light', value: Theme.LIGHT },
 				],
-				// Change title based on selected value
+				dynamicTitle: true,
+			},
+		},
+		locale: {
+			namme: 'Locale',
+			description: 'Global language for components',
+			toolbar: {
+				title: 'locale',
+				items: [
+					{ title: 'En', value: 'en' },
+					{ title: 'Ru', value: 'ru' },
+				],
 				dynamicTitle: true,
 			},
 		},
 	},
 	initialGlobals: {
 		theme: Theme.LIGHT,
+		locale: 'en',
 	},
 	decorators: [
-		(Story) => (
-			<div
-				style={
-					{
-						// margin: '0',
-						// backgroundColor: 'var(--bg-color)',
-					}
-				}
-			>
-				{Story()}
-			</div>
-		),
 		(Story, context) => {
-			const selectedTheme = context.globals.theme || Theme.LIGHT;
-			return ThemeDecorator(selectedTheme)(Story);
+			const { theme } = context.globals;
+			return ThemeDecorator(Story, theme);
+		},
+		(Story, context) => {
+			const { locale } = context.globals;
+			return TranslationDecorator(Story, locale);
 		},
 	],
 };
