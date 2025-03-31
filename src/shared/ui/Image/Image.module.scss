@@ -1,0 +1,7 @@
+.Image {
+	max-width: 100%;
+	max-height: calc(85vh - var(--navbar-height));
+	display: block;
+	margin-inline: auto;
+	border-radius: 1rem;
+}

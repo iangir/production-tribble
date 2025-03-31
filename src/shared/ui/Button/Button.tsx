@@ -6,6 +6,7 @@ export enum ThemeButton {
 	CLEAR = 'clear',
 	OUTLINE = 'outline',
 	ICON = 'icon',
+	ICON_WITH_TEXT = 'iconWithText',
 }
 
 export enum ButtonColor {
@@ -28,37 +29,40 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	disabled?: boolean;
 	type?: 'button' | 'submit' | 'reset';
 }
-export const Button = memo((props: ButtonProps) => {
-	const {
-		className,
-		children,
-		theme,
-		color,
-		size = ButtonSize.DEFAULT,
-		inverted = false,
-		type = 'button',
-		disabled,
-		...otherProps
-	} = props;
+export const Button = memo(
+	React.forwardRef<HTMLButtonElement, ButtonProps>((btnProps, ref) => {
+		const {
+			className,
+			children,
+			theme,
+			color,
+			size,
+			inverted = false,
+			type = 'button',
+			disabled,
+			...otherProps
+		} = btnProps;
 
-	const mods: Mods = {
-		[cls.disabled]: disabled,
-		[cls.inverted]: inverted,
-	};
+		const mods: Mods = {
+			[cls.disabled]: disabled,
+			[cls.inverted]: inverted,
+		};
 
-	return (
-		<button
-			className={classNames(cls.Button, mods, [
-				className,
-				theme && cls[theme],
-				color && cls[color],
-				cls[size],
-			])}
-			disabled={disabled}
-			type={type}
-			{...otherProps}
-		>
-			{children}
-		</button>
-	);
-});
+		return (
+			<button
+				className={classNames(cls.Button, mods, [
+					className,
+					theme && cls[theme],
+					color && cls[color],
+					size && cls[size],
+				])}
+				disabled={disabled}
+				type={type}
+				ref={ref}
+				{...otherProps}
+			>
+				{children}
+			</button>
+		);
+	}),
+);

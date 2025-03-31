@@ -6,7 +6,7 @@
 	border-radius: 5px;
 
 	&:hover {
-		background: var(--bg-color-hover);
+		background: var(--bg-color-accent);
 	}
 
 	svg {
@@ -24,6 +24,7 @@
 
 .icon {
 	width: 32px;
+	padding: 4px;
 
 	// max-width: 60px;
 }

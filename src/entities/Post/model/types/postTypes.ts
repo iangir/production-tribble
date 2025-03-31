@@ -1,4 +1,4 @@
-export enum PostBlockTypes {
+export enum PostBlockType {
 	TEXT = 'text',
 	IMAGE = 'image',
 	CODE = 'code',
@@ -6,23 +6,22 @@ export enum PostBlockTypes {
 
 export interface PostBaseBlock {
 	id: string;
-	type: PostBlockTypes;
+	type: PostBlockType;
 }
 
 export interface PostTextBlock extends PostBaseBlock {
-	type: PostBlockTypes.TEXT;
+	type: PostBlockType.TEXT;
 	body: string[];
 }
 
 export interface PostCodeBlock extends PostBaseBlock {
-	type: PostBlockTypes.CODE;
+	type: PostBlockType.CODE;
 	body: string;
 }
 
 export interface PostImageBlock extends PostBaseBlock {
-	type: PostBlockTypes.IMAGE;
-	title: string | null;
-	src: string;
+	type: PostBlockType.IMAGE;
+	src: { src: string; title: string }[];
 }
 
 export type PostBlock = PostTextBlock | PostImageBlock | PostCodeBlock;
@@ -31,9 +30,12 @@ export interface PostType {
 	id: string;
 	author: string;
 	createdAt: string;
-	tags: string[];
 	title: string;
 	upvotes: string;
 	downvotes: string;
-	body: PostBlock;
+	rating: string;
+	views: string;
+	commentsCount: string;
+	tags: string[];
+	body: PostBlock[];
 }

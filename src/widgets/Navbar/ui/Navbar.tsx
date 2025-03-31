@@ -36,14 +36,14 @@ export const Navbar = ({ className }: NavbarProps) => {
 	}, [authData, onCloseModal]);
 
 	let authBtn = (
-		<Button onClick={onShowModal} theme={ThemeButton.CLEAR} inverted>
+		<Button onClick={onShowModal} theme={ThemeButton.CLEAR}>
 			{t('Sign in')}
 		</Button>
 	);
 
 	if (authData) {
 		authBtn = (
-			<Button onClick={onLogout} theme={ThemeButton.CLEAR} inverted>
+			<Button onClick={onLogout} theme={ThemeButton.CLEAR}>
 				{t('Sign out')}
 			</Button>
 		);

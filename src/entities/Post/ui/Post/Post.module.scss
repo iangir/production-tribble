@@ -1,3 +1,65 @@
 .Post {
+	width: 100%;
 	min-height: 100%;
+}
+
+.creditBar {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	text-wrap: nowrap;
+	flex-wrap: wrap-reverse;
+
+}
+
+.userLink {
+	display: flex;
+	align-items: center;
+}
+
+.author {
+	color: var(--secondary-text-color);
+	margin-inline: 0.625rem;
+}
+
+.time {
+	font: var(--font-s);
+	color: var(--secondary-text-color);
+}
+
+.actionsBtn {
+	margin-left: auto;
+	z-index: 1000;
+}
+
+.postInfo {
+	display: flex;
+	flex-wrap: wrap;
+
+	.votes {
+		display: flex;
+		align-items: center;
+
+		.upvote {
+			width: 32px;
+			height: 32px;
+
+			&:hover {
+				color: var(--green-color);
+			}
+		}
+
+		.downvote {
+			width: 32px;
+			height: 32px;
+
+			svg {
+				transform: scale(-1, -1);
+			}
+
+			&:hover {
+				color: var(--red-color);
+			}
+		}
+	}
 }

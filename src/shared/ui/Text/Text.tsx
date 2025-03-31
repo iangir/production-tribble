@@ -32,7 +32,7 @@ export const Text = (props: TextProps) => {
 	return (
 		<>
 			{title && (
-				<p
+				<h1
 					className={classNames(cls.title, {}, [
 						className,
 						cls[theme],
@@ -40,7 +40,7 @@ export const Text = (props: TextProps) => {
 					])}
 				>
 					{title}
-				</p>
+				</h1>
 			)}
 			{p && (
 				<p

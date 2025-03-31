@@ -14,7 +14,7 @@ import { Loader } from 'shared/ui/Loader/Loader';
 import { profileActions } from 'entities/Profile/model/slice/profileSlice';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { updateProfileData } from 'entities/Profile/model/services/updateProfileData/updateProfileData';
-import { Avatar, AvatarSize } from 'shared/ui/ProfilePic/Avatar';
+import { Avatar, AvatarSize } from 'shared/ui/Avatar/Avatar';
 import { getProfileError } from 'entities/Profile/model/selectors/getProfileError/getProfileError';
 import { getProfileForm } from 'entities/Profile/model/selectors/getProfileForm/getProfileForm';
 import { getProfileIsLoading } from 'entities/Profile/model/selectors/getProfileIsLoading/getProfileIsLoading';
@@ -48,7 +48,9 @@ export const ProfileSettings = (props: ProfileSettingsProps) => {
 		[ValidateProfileError.USERNAME_EXISTS]: t('Username already exists'),
 	};
 
-	const userErrorMessage = validateErrors?.find((key) => Object.hasOwn(usernameErrorsMap, key));
+	const userErrorMessage = validateErrors?.find((key) =>
+		Object.hasOwn(usernameErrorsMap, key),
+	);
 
 	const emailErrorsMap = {
 		[ValidateProfileError.REQUIRED]: t('This field is required'),
@@ -56,7 +58,9 @@ export const ProfileSettings = (props: ProfileSettingsProps) => {
 		[ValidateProfileError.EMAIL_EXISTS]: t('Email already exists'),
 	};
 
-	const emailErrorMessage = validateErrors?.find((key) => Object.hasOwn(emailErrorsMap, key));
+	const emailErrorMessage = validateErrors?.find((key) =>
+		Object.hasOwn(emailErrorsMap, key),
+	);
 
 	const onEdit = useCallback(() => {
 		dispatch(profileActions.setIsEditing(true));
@@ -181,7 +185,7 @@ export const ProfileSettings = (props: ProfileSettingsProps) => {
 						/>
 					) : (
 						<Avatar
-							username={data?.username!}
+							username={data?.username}
 							src={data?.avatar}
 							size={AvatarSize.LARGE}
 						/>

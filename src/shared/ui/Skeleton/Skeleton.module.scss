@@ -9,7 +9,7 @@
 
 @keyframes pulse {
 	50% {
-		background: var(--bg-color-hover);
+		background: var(--bg-color-accent);
 	}
 }
 
@@ -19,7 +19,7 @@
 // 		linear-gradient(
 // 			90deg,
 // 			var(--skeleton-bg-color),
-// 			var(--bg-color-hover),
+// 			var(--bg-color-accent),
 // 			var(--skeleton-bg-color),
 // 		);
 // 	background-size: 200px 100%;

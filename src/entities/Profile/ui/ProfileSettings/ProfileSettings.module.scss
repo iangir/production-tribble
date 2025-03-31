@@ -2,7 +2,6 @@
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	max-width: 800px;
 	margin: 10px auto;
 
 	input {
@@ -50,6 +49,11 @@
 	img,
 	div {
 		margin-top: 20px;
+	}
+
+	img {
+		display: block;
+		margin-inline: auto;
 	}
 }
 

@@ -1,9 +1,9 @@
 .green {
-	--accent-color: #2dc653;
+	--accent-color: var(--green-color);
 }
 
 .red {
-	--accent-color: #ae2029;
+	--accent-color: var(--red-color);
 }
 
 // .inverted {
@@ -11,8 +11,6 @@
 // }
 
 .Button {
-	min-width: 40px;
-	min-height: 40px;
 	color: #fff;
 	font: var(--font-m);
 	padding: 4px 10px;
@@ -61,7 +59,7 @@
 		// padding: 0;
 		box-shadow: none;
 		border: none;
-		background: var(--bg-color-hover);
+		background: var(--bg-color-accent);
 	}
 }
 
@@ -80,9 +78,8 @@
 }
 
 .icon {
-	width: 40px;
-	height: 40px;
-	margin: 0 auto;
+	width: 32px;
+	height: 32px;
 	padding: 4px;
 	border: none;
 	background: none;
@@ -93,7 +90,32 @@
 	&:is(:hover, :focus-visible) {
 		box-shadow: none;
 		border: none;
-		background: var(--bg-color-hover);
+		background: var(--bg-color-accent);
+	}
+}
+
+.iconWithText {
+	border: none;
+	background: none;
+	outline: none;
+	align-self: center;
+	padding: 0 0.625rem 0 0.375rem;
+	color: var(--primary-text-color);
+	width: fit-content;
+	display: flex;
+	align-items: center;
+
+	&:is(:hover, :focus-visible) {
+		box-shadow: none;
+		border: none;
+		background: var(--bg-color-accent);
+	}
+
+	svg {
+		color: var(--accent-color);
+		padding: 0.25rem;
+		height: 2rem;
+		width: 2rem;
 	}
 }
 
@@ -105,14 +127,14 @@
 	}
 }
 
-.m:not(.icon,.clear) {
-	min-width: 120px;
+.m {
+	min-width: 7rem;
 }
 
-.l:not(.icon,.clear) {
-	min-width: 160px;
+.l {
+	min-width: 9rem;
 }
 
-.s:not(.icon,.clear) {
-	min-width: 80px;
+.s {
+	min-width: 5rem;
 }

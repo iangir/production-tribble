@@ -25,7 +25,6 @@ export const Sidebar = ({ className }: SidebarProps) => {
 			<Button
 				onClick={onToggle}
 				theme={ThemeButton.ICON}
-				inverted
 				data-testid="sidebar-toggle"
 				type="button"
 				className={cls.toggleBtn}

@@ -4,6 +4,7 @@
 		"indentation": ["tab"],
 		"selector-class-pattern": null,
 		"no-empty-source": null,
-		"block-no-empty": null
+		"block-no-empty": null,
+		"selector-pseudo-element-no-unknown": null
 	}
 }

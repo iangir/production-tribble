@@ -22,8 +22,8 @@ const postSlice = createSlice({
 		builder.addCase(
 			fetchPostById.fulfilled,
 			(state, action: PayloadAction<PostType>) => {
-				state.isLoading = false;
 				state.data = action.payload;
+				state.isLoading = false;
 			},
 		);
 		builder.addCase(fetchPostById.rejected, (state, action) => {
