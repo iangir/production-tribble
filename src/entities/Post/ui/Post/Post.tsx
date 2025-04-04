@@ -53,10 +53,14 @@ export const Post = memo(({ id, className }: PostProps) => {
 
 	const renderBlock = useCallback((block: PostBlock) => {
 		switch (block.type) {
-		case PostBlockType.TEXT: return <PostText block={block} key={block.id} />;
-		case PostBlockType.IMAGE: return <PostImage block={block} key={block.id} />;
-		case PostBlockType.CODE: return <PostCode block={block} key={block.id} />;
-		default: return null;
+		case PostBlockType.TEXT:
+			return <PostText block={block} key={block.id} />;
+		case PostBlockType.IMAGE:
+			return <PostImage block={block} key={block.id} />;
+		case PostBlockType.CODE:
+			return <PostCode block={block} key={block.id} />;
+		default:
+			return null;
 		}
 	}, []);
 

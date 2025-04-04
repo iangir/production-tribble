@@ -9,12 +9,10 @@ interface PostTextProps {
 	block: PostTextBlock;
 }
 
-export const PostText = memo(({ className, block }: PostTextProps) => {
-	return (
-		<section className={classNames(cls.PostText, {}, [className])}>
-			{block.body.map((p) => (
-				<Text p={p} key={Math.random()} />
-			))}
-		</section>
-	);
-});
+export const PostText = memo(({ className, block }: PostTextProps) => (
+	<section className={classNames(cls.PostText, {}, [className])}>
+		{block.body.map((p) => (
+			<Text p={p} key={Math.random()} />
+		))}
+	</section>
+));

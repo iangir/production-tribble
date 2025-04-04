@@ -20,9 +20,9 @@ export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
 		 * or user prefers reduced motion
 		 */
 		if (
-			!ref.current ||
-			!document.startViewTransition ||
-			window.matchMedia('(prefers-reduced-motion: reduce)').matches
+			!ref.current
+			|| !document.startViewTransition
+			|| window.matchMedia('(prefers-reduced-motion: reduce)').matches
 		) {
 			toggleTheme();
 			return;
@@ -33,8 +33,9 @@ export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
 				toggleTheme();
 			});
 		}).ready;
-		const { top, left, width, height } =
-			ref.current.getBoundingClientRect();
+		const {
+			top, left, width, height,
+		} = ref.current.getBoundingClientRect();
 		const x = left + width / 2;
 		const y = top + height / 2;
 		const right = window.innerWidth - left;

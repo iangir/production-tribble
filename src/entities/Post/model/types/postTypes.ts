@@ -21,7 +21,7 @@ export interface PostCodeBlock extends PostBaseBlock {
 
 export interface PostImageBlock extends PostBaseBlock {
 	type: PostBlockType.IMAGE;
-	src: { src: string; title: string }[];
+	images: { src: string; caption: string }[];
 }
 
 export type PostBlock = PostTextBlock | PostImageBlock | PostCodeBlock;

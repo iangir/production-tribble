@@ -58,7 +58,8 @@ module.exports = {
 		'no-param-reassign': 'off',
 		'no-undef': 'off',
 		'react/button-has-type': 'off',
-		'jsx-a11y/no-noninteractive-element-interactions': 'off',
+		'jsx-a11y/no-noninteractive-element-interactions': 'warn',
+		'react/no-unused-prop-types': 'warn',
 	},
 	globals: {
 		__IS_DEV__: true,

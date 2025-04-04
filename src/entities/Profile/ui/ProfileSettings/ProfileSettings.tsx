@@ -48,9 +48,7 @@ export const ProfileSettings = (props: ProfileSettingsProps) => {
 		[ValidateProfileError.USERNAME_EXISTS]: t('Username already exists'),
 	};
 
-	const userErrorMessage = validateErrors?.find((key) =>
-		Object.hasOwn(usernameErrorsMap, key),
-	);
+	const userErrorMessage = validateErrors?.find((key) => Object.hasOwn(usernameErrorsMap, key));
 
 	const emailErrorsMap = {
 		[ValidateProfileError.REQUIRED]: t('This field is required'),
@@ -58,9 +56,7 @@ export const ProfileSettings = (props: ProfileSettingsProps) => {
 		[ValidateProfileError.EMAIL_EXISTS]: t('Email already exists'),
 	};
 
-	const emailErrorMessage = validateErrors?.find((key) =>
-		Object.hasOwn(emailErrorsMap, key),
-	);
+	const emailErrorMessage = validateErrors?.find((key) => Object.hasOwn(emailErrorsMap, key));
 
 	const onEdit = useCallback(() => {
 		dispatch(profileActions.setIsEditing(true));
