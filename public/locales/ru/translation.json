@@ -12,5 +12,13 @@
 	"Incorrect username or password.": "Неверный логин или пароль.",
 	"Change language": "Поменять язык",
 	"Home page": "Главная",
-	"Profile": "Профиль"
+	"Profile": "Профиль",
+	"Be the first to comment!": "Напишите комментарий первым!",
+	"Share": "Поделиться",
+	"Upvote": "Upvote",
+	"Downvote": "Downvote",
+	"Comments": "Комментарии",
+	"Add comment": "Добавить комментарий",
+	"Reply": "Ответить",
+	"Delete": "Удалить"
 }

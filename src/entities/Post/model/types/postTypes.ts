@@ -28,14 +28,15 @@ export type PostBlock = PostTextBlock | PostImageBlock | PostCodeBlock;
 
 export interface PostType {
 	id: string;
-	author: string;
+	authorUsername: string;
 	createdAt: string;
 	title: string;
-	upvotes: string;
-	downvotes: string;
-	rating: string;
-	views: string;
-	commentsCount: string;
+	upvotes: number;
+	downvotes: number;
+	rating: number;
+	views: number;
+	commentsCount: number;
+	commentsId: string[];
 	tags: string[];
 	body: PostBlock[];
 }

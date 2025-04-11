@@ -17,6 +17,7 @@ export const Image = ({ className, images }: ImageProps) => {
 	const [imageIndex, setImageIndex] = useState(0);
 	const [fullscreen, setFullscreen] = useState(false);
 	const [captionShow, setCaptionShow] = useState(false);
+	const [height, setHeight] = useState(0);
 
 	const showPrevImage = useCallback(() => {
 		if (imageIndex === 0) return;
@@ -54,95 +55,111 @@ export const Image = ({ className, images }: ImageProps) => {
 
 	return (
 		<div
-			className={classNames(cls.Image, { [cls.fullscreen]: fullscreen }, [
-				className,
-			])}
+			style={{
+				height: fullscreen ? `${height}px` : undefined,
+			}}
 		>
-			{images.map((img) => (
-				<div
-					key={img.src}
-					className={cls.imageContainer}
-					style={{
-						translate: `${-100 * imageIndex}%`,
-					}}
-				>
-					<img
-						className={cls.bgBlur}
-						src={img.src}
-						alt="background"
-					/>
-					{img.caption && (
-						<div>
-							{captionShow && (
-								<Text p={img.caption} className={cls.caption} />
-							)}
-
-							<Button
-								onClick={() => setCaptionShow((prev) => !prev)}
-								className={cls.captionBtn}
-								theme={ThemeButton.ICON}
-							>
-								{captionShow ? <CrossIcon /> : <TextIcon />}
-							</Button>
-						</div>
-					)}
-					<figure className={cls.figure}>
-						<img
-							src={img.src}
-							key={img.src}
-							alt={img.caption}
-							className={cls.image}
-							onClick={() => setFullscreen(true)}
-						/>
-					</figure>
-				</div>
-			))}
-			{images.length > 1 && (
-				<div className={cls.dots}>
+			<div
+				className={classNames(
+					cls.Image,
+					{ [cls.fullscreen]: fullscreen },
+					[className],
+				)}
+			>
+				{images.map((img) => (
 					<div
-						className={cls.dotPointer}
+						key={img.src}
+						className={cls.imageContainer}
 						style={{
-							translate: `${200 * imageIndex}%`,
+							translate: `${-100 * imageIndex}%`,
 						}}
-					/>
-					{images.map((_, index) => (
-						<div
-							key={Math.random()}
-							className={classNames(cls.dot, {
-								[cls.active]: index === imageIndex,
-							})}
-							onClick={() => setImageIndex(index)}
+					>
+						<img
+							className={cls.bgBlur}
+							src={img.src}
+							alt="background"
+							aria-hidden
 						/>
-					))}
-				</div>
-			)}
-			{imageIndex > 0 && (
-				<Button
-					onClick={showPrevImage}
-					theme={ThemeButton.ICON}
-					className={cls.prevBtn}
-				>
-					<NextIcon />
-				</Button>
-			)}
-			{imageIndex < images.length - 1 && (
-				<Button
-					onClick={showNextImage}
-					theme={ThemeButton.ICON}
-					className={cls.nextBtn}
-				>
-					<NextIcon />
-				</Button>
-			)}
-			{fullscreen && (
-				<Button
-					onClick={() => setFullscreen(false)}
-					theme={ThemeButton.ICON}
-					className={cls.fullscreenBtn}
-				>
-					<CrossIcon />
-				</Button>
-			)}
+						{img.caption && (
+							<div>
+								<Text
+									p={img.caption}
+									className={cls.caption}
+									style={{ opacity: captionShow ? 1 : 0 }}
+								/>
+
+								<Button
+									onClick={() =>
+										setCaptionShow((prev) => !prev)
+									}
+									className={cls.captionBtn}
+									theme={ThemeButton.ICON}
+								>
+									{captionShow ? <CrossIcon /> : <TextIcon />}
+								</Button>
+							</div>
+						)}
+						<figure className={cls.figure}>
+							<img
+								src={img.src}
+								key={img.src}
+								alt={img.caption}
+								className={cls.image}
+								onClick={() => setFullscreen(true)}
+								onLoad={(e) =>
+									setHeight(e.currentTarget.offsetHeight)
+								}
+							/>
+						</figure>
+					</div>
+				))}
+				{images.length > 1 && (
+					<div className={cls.dots}>
+						<div
+							className={cls.dotPointer}
+							style={{
+								translate: `${200 * imageIndex}%`,
+							}}
+						/>
+						{images.map((_, index) => (
+							<div
+								key={Math.random()}
+								className={classNames(cls.dot, {
+									[cls.active]: index === imageIndex,
+								})}
+								onClick={() => setImageIndex(index)}
+							/>
+						))}
+					</div>
+				)}
+				{imageIndex > 0 && (
+					<Button
+						onClick={showPrevImage}
+						theme={ThemeButton.ICON}
+						className={cls.prevBtn}
+					>
+						<NextIcon />
+					</Button>
+				)}
+				{imageIndex < images.length - 1 && (
+					<Button
+						onClick={showNextImage}
+						theme={ThemeButton.ICON}
+						className={cls.nextBtn}
+					>
+						<NextIcon />
+					</Button>
+				)}
+				{fullscreen && (
+					<Button
+						onClick={() => setFullscreen(false)}
+						theme={ThemeButton.ICON}
+						className={cls.fullscreenBtn}
+					>
+						<CrossIcon />
+					</Button>
+				)}
+			</div>
 		</div>
 	);
 };

@@ -2,14 +2,15 @@
 	"posts": [
 		{
 			"id": "1",
-			"author": "admin",
+			"authorUsername": "admin",
 			"createdAt": "2023-01-01T10:00",
 			"title": "1st post",
-			"upvotes": "2",
-			"downvotes": "0",
-			"rating": "2",
-			"commentsCount": "2",
-			"views": "3",
+			"upvotes": 2,
+			"downvotes": 0,
+			"rating": 2,
+			"views": 3,
+			"commentsCount": 2,
+			"commentsId": ["1", "2"],
 			"tags": ["IT"],
 			"body": [
 				{
@@ -55,7 +56,7 @@
 					]
 				},
 				{
-					"id": "4",
+					"id": "5",
 					"type": "image",
 					"images": [
 						{
@@ -71,20 +72,22 @@
 		{
 			"id": "1",
 			"parentId": "1",
-			"author": "3",
-			"upvotes": "2",
-			"downvotes": "0",
+			"userId": "2",
+			"upvotes": 2,
+			"downvotes": 0,
+			"rating": 2,
 			"createdAt": "2023-01-01",
 			"body": "some comment"
 		},
 		{
 			"id": "2",
 			"parentId": "1",
-			"author": "3",
-			"upvotes": "2",
-			"downvotes": "0",
+			"userId": "3",
+			"upvotes": 1,
+			"downvotes": 0,
+			"rating": 1,
 			"createdAt": "2023-01-01",
-			"body": "some comment"
+			"body": "amother comment"
 		}
 	],
 	"users": [

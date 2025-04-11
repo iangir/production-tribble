@@ -15,6 +15,6 @@ export const fetchPostById = createAsyncThunk<
 		}
 		return response.data;
 	} catch (error) {
-		return rejectWithValue(i18n.t('error'));
+		return rejectWithValue(i18n.t('Cannot load post'));
 	}
 });

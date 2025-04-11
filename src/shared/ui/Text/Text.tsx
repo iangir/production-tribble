@@ -18,6 +18,7 @@ interface TextProps {
 	p?: string;
 	theme?: TextTheme;
 	align?: TextAlign;
+	style?: React.CSSProperties;
 }
 
 export const Text = (props: TextProps) => {
@@ -27,6 +28,7 @@ export const Text = (props: TextProps) => {
 		p,
 		theme = TextTheme.DEFAULT,
 		align = TextAlign.LEFT,
+		style,
 	} = props;
 
 	return (
@@ -38,6 +40,7 @@ export const Text = (props: TextProps) => {
 						cls[theme],
 						cls[align],
 					])}
+					style={style}
 				>
 					{title}
 				</h1>
@@ -49,6 +52,7 @@ export const Text = (props: TextProps) => {
 						cls[theme],
 						cls[align],
 					])}
+					style={style}
 				>
 					{p}
 				</p>

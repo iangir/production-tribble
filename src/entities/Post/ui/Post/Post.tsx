@@ -3,9 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Avatar, AvatarSize } from 'shared/ui/Avatar/Avatar';
-import { getRelativeTime } from 'shared/lib/getRelativeTime/getRelativeTime';
-import i18n from 'shared/config/i18n/i18n';
 import {
 	DynamicModuleLoader,
 	ReducersList,
@@ -18,11 +15,13 @@ import {
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
-import MoreIcon from 'shared/assets/icons/more.svg';
+import { UserInfo } from 'shared/ui/UserInfo/UserInfo';
 import VoteIcon from 'shared/assets/icons/vote.svg';
 import CommentsIcon from 'shared/assets/icons/comments.svg';
+import MoreIcon from 'shared/assets/icons/more.svg';
 import ShareIcon from 'shared/assets/icons/share.svg';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { fetchCommentsByPostId } from 'pages/PostPage/model/services/fetchCommentsByPostId/fetchCommentsByPostId';
 import { PostBlock, PostBlockType } from '../../model/types/postTypes';
 import { postReducer } from '../../model/slice/postSlice';
 import { fetchPostById } from '../../model/services/fetchPostById/fetchPostById';
@@ -47,9 +46,10 @@ export const Post = memo(({ id, className }: PostProps) => {
 	const data = useSelector(getPostData);
 	const error = useSelector(getPostError);
 
-	useEffect(() => {
+	useInitialEffect(() => {
 		dispatch(fetchPostById(id));
-	}, [dispatch, id]);
+		dispatch(fetchCommentsByPostId(id));
+	});
 
 	const renderBlock = useCallback((block: PostBlock) => {
 		switch (block.type) {
@@ -67,7 +67,17 @@ export const Post = memo(({ id, className }: PostProps) => {
 	let content;
 
 	if (isLoading) {
-		content = <Skeleton width="100%" height="500px" />;
+		content = (
+			<div className={classNames(cls.postContainer, {}, [className])}>
+				<div className={cls.userInfoSkeleton}>
+					<Skeleton className={cls.avatarSkeleton} />
+					<Skeleton className={cls.usernameSkeleton} />
+				</div>
+				<Skeleton className={cls.titleSkeleton} />
+				<Skeleton className={cls.bodySkeleton} />
+				<Skeleton className={cls.postInfoSkeleton} />
+			</div>
+		);
 	} else if (error) {
 		content = (
 			<Text
@@ -78,34 +88,14 @@ export const Post = memo(({ id, className }: PostProps) => {
 			/>
 		);
 	} else if (data) {
-		const locale = i18n.language;
-		const date = new Date(data?.createdAt!);
-		const dateString = getRelativeTime(date, locale);
-
 		content = (
 			<div className={cls.postContainer}>
-				<div className={cls.creditBar}>
-					<AppLink
-						to={`/profile/${data?.author}`}
-						className={cls.userLink}
-					>
-						<Avatar
-							username={data?.author}
-							size={AvatarSize.SMALL}
-						/>
-						<span className={cls.author}>{data?.author}</span>
-					</AppLink>
-					<time
-						dateTime={data.createdAt}
-						title={date.toString()}
-						className={cls.time}
-					>
-						{dateString}
-					</time>
-					<Button theme={ThemeButton.ICON} className={cls.actionsBtn}>
-						<MoreIcon />
-					</Button>
-				</div>
+				<UserInfo
+					username={data?.authorUsername}
+					date={data?.createdAt}
+					// avatarSrc={data?.user.avatar}
+					className={cls.userInfo}
+				/>
 				<div className={cls.content}>
 					<Text title={data?.title} className={cls.title} />
 					{data?.body.map(renderBlock)}
@@ -130,6 +120,9 @@ export const Post = memo(({ id, className }: PostProps) => {
 					<Button theme={ThemeButton.ICON_WITH_TEXT}>
 						<ShareIcon />
 						{t('Share')}
+					</Button>
+					<Button theme={ThemeButton.ICON} className={cls.actionsBtn}>
+						<MoreIcon />
 					</Button>
 				</div>
 			</div>

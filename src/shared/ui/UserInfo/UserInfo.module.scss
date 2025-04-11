@@ -1,0 +1,23 @@
+.UserInfo {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	text-wrap: nowrap;
+	flex-wrap: wrap-reverse;
+
+	.userLink {
+		display: flex;
+		align-items: center;
+	}
+
+	.author {
+		color: var(--secondary-text-color);
+		margin-inline: 0.625rem;
+		font: var(--font-s);
+	}
+
+	.time {
+		font: var(--font-s);
+		color: var(--secondary-text-color);
+	}
+}

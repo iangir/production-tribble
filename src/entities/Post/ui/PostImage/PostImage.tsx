@@ -9,11 +9,8 @@ interface PostImageProps {
 	block: PostImageBlock;
 }
 
-export const PostImage = memo(({ className, block }: PostImageProps) => {
-	const a = 1;
-	return (
-		<section className={classNames(cls.PostImage, {}, [className])}>
-			<Image images={block.images} className={cls.slider} />
-		</section>
-	);
-});
+export const PostImage = memo(({ className, block }: PostImageProps) => (
+	<section className={classNames(cls.PostImage, {}, [className])}>
+		<Image images={block.images} className={cls.slider} />
+	</section>
+));
